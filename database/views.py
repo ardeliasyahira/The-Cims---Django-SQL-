@@ -27,13 +27,13 @@ def get_role(username, password):
     admin_query = query(
         f"SELECT username FROM ADMIN WHERE username = '{username}' AND password = '{password}'"
     )
-    if type(admin_query) == list and len(admin_query):
+    if type(admin_query) == dict:
         return "admin"
 
     player_query = query(
         f"SELECT username FROM pemain WHERE username = '{username}' AND password = '{password}'"
     )
-    if type(player_query) == list and len(player_query):
+    if type(player_query) == dict:
         return "pemain"
 
     return ""
