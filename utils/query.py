@@ -1,7 +1,9 @@
-from django.db import DatabaseError, IntegrityError
+from django.db import DatabaseError, IntegrityError, transaction
 from collections import namedtuple
 import psycopg2
 from psycopg2 import Error
+
+from psycopg2.extras import RealDictCursor
 
 try:
     # Connect to an existing database
@@ -31,21 +33,27 @@ def map_cursor(cursor):
 
 def query(query_str: str):
     hasil = []
-    with connection.cursor() as cursor:
+    with connection.cursor(cursor_factory=RealDictCursor) as cursor:
         cursor.execute("SET SEARCH_PATH TO THECIMS")
 
         try:
             cursor.execute(query_str)
 
             if query_str.strip().lower().startswith("select"):
-                # Return hasil SELECT
-                hasil = map_cursor(cursor)
+                # Kalau ga error, return hasil SELECT
+                if len(hasil) > 1 :
+                    hasil = cursor.fetchall()
+                    hasil = [dict(row) for row in hasil]
+                else:
+                    hasil = cursor.fetchone()
+                    hasil = dict(hasil)
+
             else:
-                # Return jumlah row yang termodifikasi oleh INSERT, UPDATE, DELETE
+                # Kalau ga error, return jumlah row yang termodifikasi oleh INSERT, UPDATE, DELETE
                 hasil = cursor.rowcount
                 connection.commit()
         except Exception as e:
-            # Not defined error
+            # Ga tau error apa
             hasil = e
             transaction.rollback()
 
