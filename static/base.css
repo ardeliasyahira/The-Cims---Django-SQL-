@@ -1,0 +1,19 @@
+body {
+    background-color:#E5E7EB !important;
+    padding: 4rem 0.5rem !important;
+  }
+  nav.navbar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: #10B981 !important;
+    padding: 0.5rem !important;
+    width: 100%;
+    z-index: 50;
+  }
+    @media (min-width: 768px) { 
+      body {
+        background-color:#E5E7EB !important;
+        padding: 4rem !important;
+      }
+    }
