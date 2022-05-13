@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Option</title>
+</head>
+<body>
+    <form method="post">
+        <h2>Jenis Akun</h2>
+
+        <select id="jenisAkunSelect" name="role1">
+            <option value="admin">Admin</option>
+            <option value="pemain">Pemain</option>
+        </select>
+
+        <br />
+        <button id="jenisAkunButton" type="submit">Pilih</button>
+
+        <div class="form" id="adminSection">
+            <h2>Form Pendaftaran Admin</h2>
+            <label for="adminUsernameInput">Username</label>
+            <input id="adminUsernameInput" name="adminUsernameInput" type="text" placeholder="Username" />
+        
+            <br />
+            <label for="adminPasswordInput">Password</label>
+            <input id="adminPasswordInput" name="adminPasswordInput" type="password" placeholder="Password" />
+        
+            <br />
+            <input id="adminButton" type="submit" value="Register" />
+        </div>
+
+        <div class="form" id="pemainSection">
+            <label for="pemainUsernameInput">Username</label>
+            <input id="pemainUsernameInput" name="pemainUsernameInput" type="text" placeholder="Username" />
+        
+            <br />
+            <label for="pemainEmailInput">Email</label>
+            <input id="pemainEmailInput" name="pemainEmailInput" type="email" placeholder="Email" />
+
+            <br />
+            <label for="pemainPasswordInput">Password</label>
+            <input id="pemainPasswordInput" name="pemainPasswordInput" type="password" placeholder="Password" />
+
+            <br />
+            <label for="pemainNoHpInput">Nomor HP</label>
+            <input id="pemainNoHpInput" name="pemainNoHpInput" type="tel" placeholder="Nomor HP" />
+        
+            <br />
+            <input type="submit" value="Register" />
+        </div>
+    </form>
+
+</body>
+</html>
