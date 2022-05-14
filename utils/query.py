@@ -79,6 +79,7 @@ def query(query_str: str):
                     hasil = dict(hasil[0])
                 else :
                     hasil = [dict(row) for row in hasil]
+                
             else:
                 # Kalau ga error, return jumlah row yang termodifikasi oleh INSERT, UPDATE, DELETE
                 hasil = cursor.rowcount

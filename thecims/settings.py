@@ -55,7 +55,8 @@ INSTALLED_APPS = [
     'utils',
     'database',
     'home',
-    'warnakulit'
+    'warnakulit',
+    'tokoh',
 ]
 
 MIDDLEWARE = [
