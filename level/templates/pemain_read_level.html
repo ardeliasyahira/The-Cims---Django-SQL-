@@ -96,28 +96,29 @@
 
     <h1> Hello {{username}} </h1>
 
-    {% if list_warna_kulit %}
+    {% if list_level %}
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th scope="col">Kode</th>
-                    <th scope="col">Action</th>
+                    <th scope="col">Level</th>
+                    <th scope="col">XP</th>
                 </tr>
             </thead>
             <tbody>
-            {% for pemain in list_warna_kulit %}
+            {% for pemain in list_level %}
                 <tr>
-                    <td>{{ pemain.kode }}</td>
-                    <td><a href="#">Delete</a></td>
+                    <td>{{ pemain.level }}</td>
+                    <td>{{ pemain.xp }}</td>
                 </tr>
             {% endfor %}
             
             </tbody>
         </table>
     {% else %}
-        <h3>Belum ada warna kulit di aplikasi ini.</h3>
+        <h3>Belum ada level di aplikasi ini.</h3>
     {% endif %}
 
+    
 </body>
 </html>
 

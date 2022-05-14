@@ -20,6 +20,8 @@ import home.urls as home
 import misiutama.urls as misiutama
 import warnakulit.urls as warnakulit
 import tokoh.urls as tokoh
+import level.urls as level
+import menggunakan_apparel.urls as apparel
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,6 +29,8 @@ urlpatterns = [
     path('home/', include(home)),
     path('misi_utama/', include(misiutama)),
     path('warnakulit/', include(warnakulit)),
-    path('tokoh/', include(tokoh))
+    path('tokoh/', include(tokoh)),
+    path('level/', include(level)),
+    path('menggunakan_apparel/', include(apparel))
 ]
 
