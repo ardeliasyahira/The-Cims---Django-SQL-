@@ -41,13 +41,16 @@ def query(query_str: str):
 
             if query_str.strip().lower().startswith("select"):
                 # Kalau ga error, return hasil SELECT
+                print(hasil)
+                hasil = cursor.fetchall()
                 if len(hasil) > 1 :
-                    hasil = cursor.fetchall()
+                    
                     hasil = [dict(row) for row in hasil]
-                else:
-                    hasil = cursor.fetchone()
-                    hasil = dict(hasil)
-
+                elif len(hasil) == 1:
+                    hasil = dict(hasil[0])
+                else :
+                    hasil = [dict(row) for row in hasil]
+                
             else:
                 # Kalau ga error, return jumlah row yang termodifikasi oleh INSERT, UPDATE, DELETE
                 hasil = cursor.rowcount
