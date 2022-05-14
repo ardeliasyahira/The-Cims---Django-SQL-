@@ -17,10 +17,12 @@ from django.contrib import admin
 from django.urls import path, include
 import database.urls as database
 import home.urls as home
+import warnakulit.urls as warnakulit
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', include(database)),
-    path('home/', include(home))
+    path('home/', include(home)),
+    path('warnakulit/', include(warnakulit))
 ]
 
