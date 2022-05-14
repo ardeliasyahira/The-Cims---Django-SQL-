@@ -54,7 +54,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'utils',
     'database',
-    'home'
+    'home',
+    'misiutama',
 ]
 
 MIDDLEWARE = [
