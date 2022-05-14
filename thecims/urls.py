@@ -18,11 +18,15 @@ from django.urls import path, include
 import database.urls as database
 import home.urls as home
 import misiutama.urls as misiutama
+import warnakulit.urls as warnakulit
+import tokoh.urls as tokoh
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', include(database)),
     path('home/', include(home)),
     path('misi_utama/', include(misiutama)),
+    path('warnakulit/', include(warnakulit)),
+    path('tokoh/', include(tokoh))
 ]
 

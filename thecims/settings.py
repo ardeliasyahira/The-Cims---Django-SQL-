@@ -56,6 +56,8 @@ INSTALLED_APPS = [
     'database',
     'home',
     'misiutama',
+    'warnakulit',
+    'tokoh',
 ]
 
 MIDDLEWARE = [

@@ -15,23 +15,23 @@
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
-    <title>Admin Homepage</title>
+    <title>List Warna Kulit</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #a8d3f1;">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Home</a>
+                    <a class="nav-link" href="/homepage/admin_homepage">Home</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Tokoh
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="/tokoh/admin_read_tokoh">List Tokoh</a></li>
+                        <li><a class="dropdown-item" href="/homepage/admin_homepage">List Tokoh</a></li>
                         <li><a class="dropdown-item" href="#">Buat Warna Kulit</a></li>
-                        <li><a class="dropdown-item" href="/read/admin/list_warna_kulit">List Warna Kulit</a></li>
+                        <li><a class="dropdown-item" href="/warnakulit/admin/list_warna_kulit">List Warna Kulit</a></li>
                         <li><a class="dropdown-item" href="#">Buat Level</a></li>
                         <li><a class="dropdown-item" href="#">List Level</a></li>
                     </ul>
@@ -93,6 +93,52 @@
             </ul>
         </div>
     </nav>
-    <h3>Username: {{username}}</h3>
+
+    <h1> Hello {{username}} </h1>
+
+    {% if list_warna_kulit %}
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Kode</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for pemain in list_warna_kulit %}
+                <tr>
+                    <td>{{ pemain.kode }}</td>
+                    <td><a href="#">Delete</a></td>
+                </tr>
+            {% endfor %}
+            
+            </tbody>
+        </table>
+    {% else %}
+        <h3>Belum ada warna kulit di aplikasi ini.</h3>
+    {% endif %}
+
+    <!-- {% if list_warna_kulit %}
+        <table>
+            <tr>
+                <th scope="col">Kode</th>
+                <th scope="col">Action</th>
+            </tr>
+
+            {% for pemain in list_warna_kulit %}
+                <tr>
+                    <td>{{ pemain.kode }}</td>
+                    <td>
+                        <ul>
+                            <li><a href="#">Detail</a></li>
+                        </ul>
+                    </td>
+                </tr>
+            {% endfor %}
+        <table>
+            {% else %}
+                <p>Belum ada warna kulit yang dibuat</p>
+            {% endif %} -->
 </body>
 </html>
+
