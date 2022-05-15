@@ -17,6 +17,9 @@ from django.contrib import admin
 from django.urls import path, include
 import database.urls as database
 import home.urls as home
+import tokoh.urls as tokoh
+import barang.urls as barang
+import pekerjaan.urls as pekerjaan
 import misiutama.urls as misiutama
 import warnakulit.urls as warnakulit
 import tokoh.urls as tokoh
@@ -27,8 +30,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(database)),
     path('home/', include(home)),
-    path('misi_utama/', include(misiutama)),
     path('warnakulit/', include(warnakulit)),
+    path('barang/', include(barang)),
+    path('pekerjaan/', include(pekerjaan)),
+    path('misi_utama/', include(misiutama)),
     path('tokoh/', include(tokoh)),
     path('level/', include(level)),
     path('menggunakan_apparel/', include(apparel))

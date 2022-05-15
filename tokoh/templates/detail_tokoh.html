@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail tokoh</title>
+</head>
+<body>
+    <h1>Detail tokoh</h1>
+
+    {% for data in list_tokoh %}
+
+    <text>Nama: {{ data.Nama }} </text>
+    <br />
+
+    <text>ID Rambut: {{ data.Id_rambut }} </text>
+    <br />
+
+    <text>ID Mata: {{ data.Id_mata }} </text>
+    <br />
+
+    <text>ID Rumah: {{ data.Id_rumah }} </text>
+    <br />
+
+    <text>Warna kulit: {{ data.Warna_kulit }} </text>
+    <br />
+
+    <text>Pekerjaan: {{ data.Pekerjaan }} </text>
+    <br />
+
+    {% endfor %}
+</body>
+</html>
+
+
+
+

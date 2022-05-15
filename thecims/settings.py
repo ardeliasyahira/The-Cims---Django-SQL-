@@ -55,9 +55,11 @@ INSTALLED_APPS = [
     'utils',
     'database',
     'home',
-    'misiutama',
     'warnakulit',
     'tokoh',
+    'barang',
+    'pekerjaan',
+    'misiutama',
     'level',
     'menggunakan_apparel'
 ]

@@ -15,7 +15,7 @@
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
-    <title>Menggunakan Apparel</title>
+    <title> List Pemain </title>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #a8d3f1;">
@@ -96,40 +96,27 @@
             </ul>
         </div>
     </nav>
+    <h1> Hello {{username}} </h1>
 
-    <h1> Halo {{username}}! </h1>
+    {% if list_menggunakan_barang %}
+        <table>
+            <tr>
+                <th scope="col">Nama Tokoh</th>
+                <th scope="col">Nama Barang</th>
+                <th scope="col">Waktu</th>
+            </tr>
 
-    {% if list_menggunakan_apparel %}
-        <table class="table table-striped">
-            <thead>
+            {% for mb in list_menggunakan_barang %}
                 <tr>
-                    <th scope="col">Nama Tokoh</th>
-                    <th scope="col">Nama Apparel</th>
-                    <th scope="col">Warna</th>
-                    <th scope="col">Nama Pekerjaan</th>
-                    <th scope="col">Kategori</th>
-                    <th scope="col">Action</th>
-                </tr>
-            </thead>
-            <tbody>
-            {% for pemain in list_menggunakan_apparel %}
-                <tr>
-                    <td>{{ pemain.nama_tokoh }}</td>
-                    <td>{{ pemain.nama }}</td>
-                    <td>{{ pemain.warna_apparel }}</td>
-                    <td>{{ pemain.nama_pekerjaan }}</td>
-                    <td>{{ pemain.kategori_apparel }}</td>
-                    <td><a href="#">Lepas</a></td>
+                    <td>{{ mb.nama_tokoh }}</td>
+                    <td>{{ mb.nama }}</td>
+                    <td>{{ mb.waktu }}</td>
                 </tr>
             {% endfor %}
-            
-            </tbody>
-        </table>
-    {% else %}
-        <h3>Belum ada penggunaan apparel di aplikasi ini.</h3>
-    {% endif %}
-
-    
+        <table>
+            {% else %}
+                <p>Belum ada barang yang digunakan</p>
+            {% endif %}
 </body>
 </html>
 
