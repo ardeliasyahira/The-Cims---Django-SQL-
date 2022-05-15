@@ -51,7 +51,7 @@ def create_koleksi_tokoh(request):
 
     result = query(
         f"""
-        INSERT INTO kategori_apparel VALUES
+        INSERT INTO koleksi_tokoh VALUES
         ( '{id_koleksi}', '{username_pengguna}', '{nama_tokoh}')
     """
     )
