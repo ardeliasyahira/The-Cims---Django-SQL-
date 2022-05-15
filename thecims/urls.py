@@ -31,7 +31,6 @@ urlpatterns = [
     path('', include(database)),
     path('home/', include(home)),
     path('warnakulit/', include(warnakulit)),
-    path('tokoh/', include(tokoh)),
     path('barang/', include(barang)),
     path('pekerjaan/', include(pekerjaan)),
     path('misi_utama/', include(misiutama)),

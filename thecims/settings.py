@@ -58,9 +58,8 @@ INSTALLED_APPS = [
     'warnakulit',
     'tokoh',
     'barang',
-    'pekerjaan'
+    'pekerjaan',
     'misiutama',
-    'warnakulit',
     'level',
     'menggunakan_apparel'
 ]
