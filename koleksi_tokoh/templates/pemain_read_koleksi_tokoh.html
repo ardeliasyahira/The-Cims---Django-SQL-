@@ -15,24 +15,25 @@
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
-    <title>Menggunakan Apparel</title>
+    <title>Level</title>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #a8d3f1;">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Home</a>
+                    <a class="nav-link" href="/home/admin_homepage">Home</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Tokoh
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="/create/pemain/create_tokoh">Buat Tokoh</a></li>
-                        <li><a class="dropdown-item" href="/tokoh/pemain_read_tokoh">List Tokoh</a></li>
-                        <li><a class="dropdown-item" href="/warnakulit/pemain/list_warna_kulit">List Warna Kulit</a></li>
-                        <li><a class="dropdown-item" href="/level/pemain/list_level">List Level</a></li>
+                        <li><a class="dropdown-item" href="/tokoh/admin_read_tokoh">List Tokoh</a></li>
+                        <li><a class="dropdown-item" href="/warnakulit/admin/create_warnakulit">Buat Warna Kulit</a></li>
+                        <li><a class="dropdown-item" href="/warnakulit/admin/list_warna_kulit">List Warna Kulit</a></li>
+                        <li><a class="dropdown-item" href="/level/admin/create_level">Buat Level</a></li>
+                        <li><a class="dropdown-item" href="/level/admin/list_level">List Level</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -40,9 +41,9 @@
                     Pekerjaan
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="/pekerjaan/read_pekerjaan">List Pekerjaan</a></li>
-                        <li><a class="dropdown-item" href="#">Buat Bekerja</a></li>
-                        <li><a class="dropdown-item" href="/pekerjaan/read_bekerja">List Bekerja</a></li>
+                        <li><a class="dropdown-item" href="#">Buat Pekerjaan</a></li>
+                        <li><a class="dropdown-item" href="#">List Pekerjaan</a></li>
+                        <li><a class="dropdown-item" href="#">List Bekerja</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -51,8 +52,8 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="#">Buat Misi Utama</a></li>
-                        <li><a class="dropdown-item" href="/misi_utama/pemain_read_misiutama">List Misi Utama</a></li>
-                        <li><a class="dropdown-item" href="/menjalankan_misi/pemain_read_menjalankan_misiutama">List Menjalankan Misi Utama</a></li>
+                        <li><a class="dropdown-item" href="#">List Misi Utama</a></li>
+                        <li><a class="dropdown-item" href="#">List Warna Kulit</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -61,8 +62,8 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="#">Buat Makanan</a></li>
-                        <li><a class="dropdown-item" href="/makanan/pemain_read_makanan">List Makanan</a></li>
-                        <li><a class="dropdown-item" href="/makan/pemain_read_makan">List Makan</a></li>
+                        <li><a class="dropdown-item" href="#">List Makanan</a></li>
+                        <li><a class="dropdown-item" href="#">List Makan</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -84,10 +85,8 @@
                     Penggunaan
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="/menggunakan_apparel/pemain/create_menggunakan_apparel">Buat Menggunakan Apparel</a></li>
-                        <li><a class="dropdown-item" href="/menggunakan_apparel/pemain/list_menggunakan_apparel">List Menggunakan Apparel</a></li>
-                        <li><a class="dropdown-item" href="/barang/pemain_create_barang">Buat Menggunakan Barang</a></li>
-                        <li><a class="dropdown-item" href="/barang/pemain_read_barang">List Menggunakan Barang</a></li>
+                        <li><a class="dropdown-item" href="/menggunakan_apparel/admin/list_menggunakan_apparel">List Menggunakan Apparel</a></li>
+                        <li><a class="dropdown-item" href="#">List Menggunakan Barang</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
@@ -99,37 +98,32 @@
 
     <h1> Halo {{username}}! </h1>
 
-    {% if list_menggunakan_apparel %}
+    {% if list_koleksi_tokoh %}
         <table class="table table-striped">
             <thead>
                 <tr>
+                    <th scope="col">ID Koleksi</th>
+                    <th scope="col">Username Pengguna</th>
                     <th scope="col">Nama Tokoh</th>
-                    <th scope="col">Nama Apparel</th>
-                    <th scope="col">Warna</th>
-                    <th scope="col">Nama Pekerjaan</th>
-                    <th scope="col">Kategori</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
-            {% for pemain in list_menggunakan_apparel %}
+            {% for pemain in list_koleksi_tokoh %}
                 <tr>
+                    <td>{{ pemain.id_koleksi }}</td>
+                    <td>{{ pemain.username_pengguna }}</td>
                     <td>{{ pemain.nama_tokoh }}</td>
-                    <td>{{ pemain.nama }}</td>
-                    <td>{{ pemain.warna_apparel }}</td>
-                    <td>{{ pemain.nama_pekerjaan }}</td>
-                    <td>{{ pemain.kategori_apparel }}</td>
-                    <td><a href="#">Lepas</a></td>
+                    <td><a href="/koleksi_tokoh/admin/delete_koleksitokoh">delete</a></td>
                 </tr>
             {% endfor %}
             
             </tbody>
         </table>
     {% else %}
-        <h3>Belum ada penggunaan apparel di aplikasi ini.</h3>
+        <h3>Belum ada koleksi_tokoh di aplikasi ini.</h3>
     {% endif %}
 
     
 </body>
 </html>
-
