@@ -15,7 +15,7 @@
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
-    <title>Admin Homepage</title>
+    <title>Update Level</title>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #a8d3f1;">
@@ -30,9 +30,9 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="/tokoh/admin_read_tokoh">List Tokoh</a></li>
-                        <li><a class="dropdown-item" href="/warnakulit/admin/create_warnakulit">Buat Warna Kulit</a></li>
+                        <li><a class="dropdown-item" href="#">Buat Warna Kulit</a></li>
                         <li><a class="dropdown-item" href="/warnakulit/admin/list_warna_kulit">List Warna Kulit</a></li>
-                        <li><a class="dropdown-item" href="/level/admin/create_level">Buat Level</a></li>
+                        <li><a class="dropdown-item" href="#">Buat Level</a></li>
                         <li><a class="dropdown-item" href="/level/admin/list_level">List Level</a></li>
                     </ul>
                 </li>
@@ -93,14 +93,18 @@
             </ul>
         </div>
     </nav>
-    <h3>Form Buat Warna Kulit</h3>
+    <h3>Form Update Level</h3>
     <div>
       
       <form method="POST">
           <div class="div-row">
-              <label for="kode_input">Kode: </label>
-              <input id="kode_input" type="text" name="kode_input" />
+              <label for="level_input">Level: 1 </label>
+              <!-- <input id="level_input" type="text" name="level_input" /> -->
           </div>
+          <div class="div-row">
+            <label for="xp_input">XP: 0 </label>
+            <input id="xp_input" type="text" name="xp_input" />
+        </div>
           <div class="div-row">
               <input class="padded-button" type="submit" value="Simpan" />
           </div>

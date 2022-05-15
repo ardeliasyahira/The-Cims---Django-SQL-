@@ -71,3 +71,43 @@ def create_level_view(request):
     data['level'] = level
 
     return render(request, 'create_level.html', data)
+
+
+@csrf_exempt
+def update_level(request):
+    if not is_authenticated(request):
+        return login(request)
+    
+    if str(request.session['role']) == 'pemain':
+        return HttpResponse("You are not authorized")
+    
+    if request.method != 'POST':
+        return update_level_view(request)
+    
+    body = request.POST
+    level = str(body.get('level_input'))
+    xp = str(body.get('xp_input'))
+
+    result = query(
+        f"""
+        INSERT INTO level VALUES
+        ( '{level}', '{xp}')
+    """
+    )
+
+    if not type(result) == int:
+        return HttpResponse("Gagal Memasukkan Data")
+    
+    return admin_read_level(request)
+
+
+def update_level_view(request):
+    data = {}
+    
+    level = query(
+        "SELECT * FROM level"
+    )
+
+    data['level'] = level
+
+    return render(request, 'update_level.html', data)
