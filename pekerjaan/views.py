@@ -35,3 +35,9 @@ def read_bekerja(request):
         data['list_bekerja'] = list_bekerja
         
         return render(request, "pemain_read_bekerja.html", data)
+
+def admin_create_pekerjaan(request) :
+    return render(request, 'admin_create_pekerjaan.html')
+
+def admin_update_pekerjaan(request) :
+    return render(request, 'admin_update_pekerjaan.html')

@@ -38,3 +38,6 @@ def pemain_read_barang(request):
     data['list_menggunakan_barang'] = list_menggunakan_barang
 
     return render(request, 'pemain_read_barang.html', data)
+
+def pemain_create_barang(request) :
+    return render(request, 'pemain_create_barang.html')

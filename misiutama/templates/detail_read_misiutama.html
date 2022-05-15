@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> List Misi Utama </title>
+    <style>
+        table {
+            border: 1px solid black;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        
+        th {
+            border: 1px solid black;
+        }
+        
+        td {
+            border: 1px solid black;
+            text-align: left;
+            padding: 5px;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #D6EEEE;
+        }
+    </style>
+</head>
+
+<body>
+    <h1> Hello {{username}} </h1>
+
+    {% if list_detailmisi %}
+    <table>
+
+        <tr>
+            <th scope="col">No.</th>
+            <th scope="col">Nama</th>
+            <th scope="col">Efek Energi</th>
+            <th scope="col">Efek Hubungan Soisal</th>
+            <th scope="col">Efek kelaparan</th>
+            <th scope="col">Syarat Energi</th>
+            <th scope="col">Syarat Hubungan Soisal</th>
+            <th scope="col">Syarat kelaparan</th>
+            <th scope="col">Completion_time</th>
+            <th scope="col">Reward Koin</th>
+            <th scope="col">Reward XP</th>
+            <th scope="col">Deskripsi</th>
+        </tr>
+
+        {% for i in list_detailmisi %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{i.nama}}</td>
+            <td>{{i.Efek_energi}}</td>
+            <td>{{i.Efek_hubungan_sosial}}</td>
+            <td>{{i.Efek_kelaparan}}</td>
+            <td>{{i.Syarat_energi}}</td>
+            <td>{{i.Syarat_hubungan_sosial}}</td>
+            <td>{{i.Syarat_kelaparan}}</td>
+            <td>{{i.Completion_time}}</td>
+            <td>{{i.Reward_koin}}</td>
+            <td>{{i.Reward_xp}}</td>
+            <td>{{i.deskripsi}}</td>
+
+            <td>
+                <ul>
+                    <a href="#">Detail</a>
+                </ul>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+</body>
+
+</html>
