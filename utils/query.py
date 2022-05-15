@@ -31,6 +31,35 @@ def map_cursor(cursor):
     return [nt_result(*row) for row in cursor.fetchall()]
 
 
+# def query(query_str: str):
+#     hasil = []
+#     with connection.cursor(cursor_factory=RealDictCursor) as cursor:
+#         cursor.execute("SET SEARCH_PATH TO THECIMS")
+
+#         try:
+#             cursor.execute(query_str)
+
+#             if query_str.strip().lower().startswith("select"):
+#                 print(len(hasil))
+#                 if len(hasil) > 1 :
+#                     hasil = cursor.fetchall()
+#                     hasil = [dict(row) for row in hasil]
+#                 else:
+#                     hasil = cursor.fetchone()
+#                     hasil = dict(hasil)
+#                 print(len(hasil))
+
+#             else:
+#                 # Kalau ga error, return jumlah row yang termodifikasi oleh INSERT, UPDATE, DELETE
+#                 hasil = cursor.rowcount
+#                 connection.commit()
+#         except Exception as e:
+#             # Ga tau error apa
+#             hasil = e
+#             transaction.rollback()
+
+#     return hasil
+
 def query(query_str: str):
     hasil = []
     with connection.cursor(cursor_factory=RealDictCursor) as cursor:
@@ -44,7 +73,6 @@ def query(query_str: str):
                 print(hasil)
                 hasil = cursor.fetchall()
                 if len(hasil) > 1 :
-                    
                     hasil = [dict(row) for row in hasil]
                 elif len(hasil) == 1:
                     hasil = dict(hasil[0])

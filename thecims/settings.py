@@ -55,7 +55,10 @@ INSTALLED_APPS = [
     'utils',
     'database',
     'home',
+    'warnakulit',
     'tokoh',
+    'barang',
+    'pekerjaan'
 ]
 
 MIDDLEWARE = [
