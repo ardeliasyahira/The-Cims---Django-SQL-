@@ -1,15 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
-
-{% load static %}
-
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'thecims/style.css' %}">
-    <title>basdat i love you</title>
+    <title>Welcome Page</title>
+    <style>
+        body{
+            margin:0;
+            padding:0;
+            background:#1670b9;
+            color:#fff;
+            background-repeat: no-repeat;
+            background-attachment: fixed; 
+            background-size: cover;
+        }
+  
+        .main .heading{
+            position: absolute;
+            height:auto;
+            width:100%;
+            top:50%;
+            transform: translateY(-50%);
+            text-align: center;
+            text-shadow:0px 0.5px 5px rgba(0, 0, 0, 0.2);
+        }
+        .main .heading .head{
+            position: relative;
+            font-family: 'RacingSansOne',sans-serif;
+            font-size:48px;
+            font-weight: 600; 
+            color:#fff;
+        }
+        .main .heading .head span{
+            color:#00ffb3;
+        }
+        .main .heading .btns{
+            height:auto;
+            width:100%;
+            display: flex;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .main .heading .btns a{
+            color:rgb(0, 0, 0);
+            text-align: center;
+            text-decoration: none;
+            font-family:'cinzel',sans-serif;
+            font-size:15px;
+            font-weight:300;
+            display:block;
+            border:1px solid rgb(255, 255, 255);
+            height:auto;
+            width:150px;
+            padding:10px;
+            display: flex;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            margin-left:1%;
+            border-radius: 2px;
+            transition: 0.5s ease-in-out;
+        }
+        .main .heading .btns a:hover{
+            background:#00ffb3;
+            border:1px solid #00ffb3;
+        }
+        .main .heading .btns .btn1{
+            background:#00ffb3;
+            border:1px solid #00ffb3;
+        }
+        .main .heading .btns .btn1:hover{
+            background: #00ffb3;
+            border:1px solid #00ffb3 ;
+            color:rgba(255, 255, 255, 0.95);
+        }
+    </style>
 </head>
 <body>
-    <h1>halo gan</h1>
+    <div class="main">
+		<div class="overlay"></div>
+		
+		<div class="heading">
+				<h1 class="head"><span>THE CIMS A-05</span></h1>
+				<div class="btns" action="" method="POST">
+					<a class="btn1" onclick="location.href = '/login'">LOGIN</a>
+					<a class="btn2" onclick="location.href = '/register'">REGISTER</a>
+				</div>	
+		</div>
+	</div>	
 </body>
 </html>

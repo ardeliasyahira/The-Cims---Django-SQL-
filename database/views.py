@@ -5,6 +5,8 @@ from django.views.decorators.csrf import csrf_exempt
 from utils.query import query
 
 # Create your views here.
+def index(request):
+    return render(request, 'index.html')
 
 def is_authenticated(request):
     try:
@@ -87,7 +89,7 @@ def logout(request):
     next = request.GET.get("next")
 
     if not is_authenticated(request):
-        return redirect("/auth/login")
+        return redirect("/login")
 
     request.session.flush()
     request.session.clear_expired()
@@ -95,7 +97,7 @@ def logout(request):
     if next != None and next != "None":
         return redirect(next)
     else:
-        return redirect("/auth/login")
+        return redirect("/login")
 
 def register_view(request):
     return render(request, "register.html")

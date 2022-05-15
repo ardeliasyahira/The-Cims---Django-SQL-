@@ -17,17 +17,26 @@ from django.contrib import admin
 from django.urls import path, include
 import database.urls as database
 import home.urls as home
-import warnakulit.urls as warnakulit
 import tokoh.urls as tokoh
 import barang.urls as barang
 import pekerjaan.urls as pekerjaan
+import misiutama.urls as misiutama
+import warnakulit.urls as warnakulit
+import tokoh.urls as tokoh
+import level.urls as level
+import menggunakan_apparel.urls as apparel
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('auth/', include(database)),
+    path('', include(database)),
     path('home/', include(home)),
     path('warnakulit/', include(warnakulit)),
     path('tokoh/', include(tokoh)),
     path('barang/', include(barang)),
-    path('pekerjaan/', include(pekerjaan))
+    path('pekerjaan/', include(pekerjaan)),
+    path('misi_utama/', include(misiutama)),
+    path('tokoh/', include(tokoh)),
+    path('level/', include(level)),
+    path('menggunakan_apparel/', include(apparel))
 ]
+

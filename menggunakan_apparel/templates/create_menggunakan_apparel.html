@@ -15,7 +15,7 @@
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
-    <title>Pemain Homepage</title>
+    <title>Create Menggunakan Apparel</title>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #a8d3f1;">
@@ -93,9 +93,41 @@
             </ul>
         </div>
     </nav>
-    <h3>Username: {{pemain.username}}</h3>
-    <h3>Email: {{pemain.email}}</h3>
-    <h3>Nomor HP: {{pemain.no_hp}}</h3>
-    <h3>Koin: {{pemain.koin}}</h3>
+    <h3>Form Buat Menggunakan Apparel</h3>
+    <div>
+      
+      <form method="POST">
+        <div class="div-row">
+            <label>Nama Tokoh</label>
+            <div class="form-group">
+                <select class="form-control" id="exampleFormControlSelect1" name="nama_tokoh_input">
+                    <!-- {% for i in list_tokoh %}
+                        <option value="{{ i.nama }}">{{ i.nama }}</option>
+                    {% endfor %} -->
+                    <option value = "A" selected>Tokoh A</option>
+                    <option value = "B">Tokoh B</option>
+                    <option value = "C">Tokoh C</option>
+                </select>
+            </div>
+        </div>
+        <div class="div-row">
+            <label>Apparel</label>
+            <div class="form-group">
+                <select class="form-control" id="exampleFormControlSelect1" name="apparel_input">
+                    <!-- {% for i in list_menggunakan_apparel %}
+                        <option value="{{ i.kategori_apparel }}">{{ i.kategori_apparel }}</option>
+                    {% endfor %} -->
+                    <option value = "AA" selected>Apparel A</option>
+                    <option value = "AB">Apparel B</option>
+                    <option value = "AC">Apparel C</option>
+                </select>
+            </div>
+        </div>
+          <div class="div-row">
+              <input class="padded-button" type="submit" value="Pakai" />
+          </div>
+      </form>            
+    </div>
+  </div>
 </body>
 </html>

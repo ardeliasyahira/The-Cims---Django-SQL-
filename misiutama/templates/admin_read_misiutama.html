@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> List Misi Utama </title>
+    <style>
+        table {
+            border: 1px solid black;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        
+        th {
+            border: 1px solid black;
+        }
+        
+        td {
+            border: 1px solid black;
+            text-align: left;
+            padding: 5px;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #D6EEEE;
+        }
+    </style>
+</head>
+
+<body>
+    <h1> Hello {{username}} </h1>
+
+    {% if list_misiutama %}
+    <table>
+
+        <tr>
+            <th scope="col">No</th>
+            <th scope="col">Nama Misi</th>
+            <th scope="col">Action</th>
+        </tr>
+
+        {% for i in list_misiutama %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{i.nama_misi}}</td>
+            <td>
+                <ul>
+                    <a href="#">Detail</a>
+                </ul>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+</body>
+
+</html>
