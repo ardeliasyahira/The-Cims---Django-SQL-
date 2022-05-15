@@ -25,7 +25,7 @@ import menggunakan_apparel.urls as apparel
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('auth/', include(database)),
+    path('', include(database)),
     path('home/', include(home)),
     path('misi_utama/', include(misiutama)),
     path('warnakulit/', include(warnakulit)),

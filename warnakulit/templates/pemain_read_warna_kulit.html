@@ -15,25 +15,24 @@
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
-    <title>List Warna Kulit</title>
+    <title>Pemain Homepage</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #a8d3f1;">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="/homepage/admin_homepage">Home</a>
+                    <a class="nav-link" href="#">Home</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Tokoh
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="/homepage/admin_homepage">List Tokoh</a></li>
-                        <li><a class="dropdown-item" href="#">Buat Warna Kulit</a></li>
-                        <li><a class="dropdown-item" href="/warnakulit/admin/list_warna_kulit">List Warna Kulit</a></li>
-                        <li><a class="dropdown-item" href="#">Buat Level</a></li>
-                        <li><a class="dropdown-item" href="/level/admin/list_level">List Level</a></li>
+                        <li><a class="dropdown-item" href="/create/pemain/create_tokoh">Buat Tokoh</a></li>
+                        <li><a class="dropdown-item" href="/tokoh/pemain_read_tokoh">List Tokoh</a></li>
+                        <li><a class="dropdown-item" href="/warnakulit/pemain/list_warna_kulit">List Warna Kulit</a></li>
+                        <li><a class="dropdown-item" href="/level/pemain/list_level">List Level</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -41,8 +40,8 @@
                     Pekerjaan
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Buat Pekerjaan</a></li>
                         <li><a class="dropdown-item" href="#">List Pekerjaan</a></li>
+                        <li><a class="dropdown-item" href="#">Buat Bekerja</a></li>
                         <li><a class="dropdown-item" href="#">List Bekerja</a></li>
                     </ul>
                 </li>
@@ -51,9 +50,9 @@
                     Misi
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Buat Misi Utama</a></li>
                         <li><a class="dropdown-item" href="#">List Misi Utama</a></li>
-                        <li><a class="dropdown-item" href="#">List Warna Kulit</a></li>
+                        <li><a class="dropdown-item" href="#">Buat Menjalankan Misi Utama</a></li>
+                        <li><a class="dropdown-item" href="#">List Menjalankan Misi Utama</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -61,8 +60,8 @@
                     Makan
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Buat Makanan</a></li>
                         <li><a class="dropdown-item" href="#">List Makanan</a></li>
+                        <li><a class="dropdown-item" href="#">Buat Makan</a></li>
                         <li><a class="dropdown-item" href="#">List Makan</a></li>
                     </ul>
                 </li>
@@ -71,11 +70,10 @@
                     Koleksi
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Buat Koleksi</a></li>
                         <li><a class="dropdown-item" href="#">List Koleksi</a></li>
-                        <li><a class="dropdown-item" href="#">Buat Kategori Apparel</a></li>
                         <li><a class="dropdown-item" href="#">List Kategori Apparel</a></li>
-                        <li><a class="dropdown-item" href="#">List Koleksi Tokohl</a></li>
+                        <li><a class="dropdown-item" href="#">Buat Koleksi Tokoh</a></li>
+                        <li><a class="dropdown-item" href="#">List Koleksi Tokoh</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -83,12 +81,14 @@
                     Penggunaan
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">List Menggunakan Apparel</a></li>
+                        <li><a class="dropdown-item" href="/menggunakan_apparel/pemain/create_menggunakan_apparel">Buat Menggunakan Apparel</a></li>
+                        <li><a class="dropdown-item" href="/menggunakan_apparel/pemain/list_menggunakan_apparel">List Menggunakan Apparel</a></li>
+                        <li><a class="dropdown-item" href="#">Buat Menggunakan Barang</a></li>
                         <li><a class="dropdown-item" href="#">List Menggunakan Barang</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/auth/logout">Logout</a>
+                    <a class="nav-link" href="/logout">Logout</a>
                 </li>
             </ul>
         </div>
