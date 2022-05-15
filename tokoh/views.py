@@ -1,6 +1,8 @@
 from django.shortcuts import render, HttpResponse
 from utils.query import query
 from home.views import get_session_data, is_authenticated, login
+from .models import Tokoh
+from .forms import TokohForm
 
 # Create your views here.
 def admin_read_tokoh(request):
@@ -35,3 +37,13 @@ def pemain_read_tokoh(request):
     print(data)
 
     return render(request, 'pemain_read_tokoh.html', data)
+
+def create_tokoh(request):
+    form = TokohForm()
+    if request.method == 'POST':
+        form = DonasiForm(request.POST or None)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/tokoh/pemain_read_tokoh')
+    response = {'form': form}
+    return render(request, 'create_tokoh.html', response)

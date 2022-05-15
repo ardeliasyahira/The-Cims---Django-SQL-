@@ -59,7 +59,11 @@ INSTALLED_APPS = [
     'warnakulit',
     'tokoh',
     'level',
-    'menggunakan_apparel'
+    'menggunakan_apparel',
+    'crispy_forms',
+    'menjalankan_misi',
+    'makanan',
+    'makan',
 ]
 
 MIDDLEWARE = [
