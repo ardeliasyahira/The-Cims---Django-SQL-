@@ -9,30 +9,43 @@
 <body>
     <h1>Detail tokoh</h1>
 
-    {% for data in list_tokoh %}
+    {% for data_query in list %}
 
-    <text>Nama: {{ data.Nama }} </text>
-    <br />
+    <tr>
+        <td>Nama</td>
 
-    <text>ID Rambut: {{ data.Id_rambut }} </text>
-    <br />
-
-    <text>ID Mata: {{ data.Id_mata }} </text>
-    <br />
-
-    <text>ID Rumah: {{ data.Id_rumah }} </text>
-    <br />
-
-    <text>Warna kulit: {{ data.Warna_kulit }} </text>
-    <br />
-
-    <text>Pekerjaan: {{ data.Pekerjaan }} </text>
-    <br />
+        <td>{{data_query.nama}}</td>
+        <br/>
+    </tr>
+    <tr>
+        <td>ID Rambut</td>
+        <td>{{data_query.id_rambut}}</td>
+        <br/>
+    </tr>
+    <tr>
+        <td>ID Mata</td>
+        <td>{{data_query.id_mata}}</td>
+        <br/>
+    </tr>
+    <tr>
+        <td>ID Rumah</td>
+        <td>{{data_query.id_rumah}}</td>
+        <br/>
+    </tr>
+    <tr>
+        <td>Warna kulit</td>
+        <td>{{data_query.warna_kulit}}</td>
+        <br/>
+    </tr>
+    <tr>
+        <td>Pekerjaan</td>
+        <td>{{data_query.pekerjaan}}</td>
+        <br/>
+    </tr>
 
     {% endfor %}
 </body>
 </html>
-
 
 
 

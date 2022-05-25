@@ -128,7 +128,7 @@
                         <ul>
                             <form method="POST">
                                 {% csrf_token %}
-                                <li><button name="NamaTokoh" type="submit" value={{ i.nama }} href="/tokoh/admin_detail_tokoh">Detail</button></li>
+                                <li><button name="NamaTokoh" type="submit" value= {{ pemain.nama }}>Detail</button></li>
                             </form>
                         </ul>
                     </td>

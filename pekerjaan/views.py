@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import redirect, render, HttpResponse
 from utils.query import query
 from home.views import get_session_data, is_authenticated, login
 
@@ -37,6 +37,17 @@ def read_bekerja(request):
         return render(request, "pemain_read_bekerja.html", data)
 
 def admin_create_pekerjaan(request) :
+    role_admin = False
+    try:
+        if (request.session['role'] == 'admin'):
+            role_admin = True
+    except:
+        return redirect('/')
+
+    if request.method == 'POST':
+        nama = request.POST['nama']
+        base_honor = request.POST['base_honor']
+        insert_data = query(f"INSERT INTO PEKERJAAN VALUES(")
     return render(request, 'admin_create_pekerjaan.html')
 
 def admin_update_pekerjaan(request) :
