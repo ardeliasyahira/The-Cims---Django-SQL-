@@ -46,7 +46,7 @@
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="#">Buat Misi Utama</a></li>
                         <li><a class="dropdown-item" href="/misi_utama/admin_read_misiutama">List Misi Utama</a></li>
-                        <li><a class="dropdown-item" href="/menjalankan_misi/admin_read_menjalankan_misiutama/">List Mengerjakan Misi Utama</a></li>
+                        <li><a class="dropdown-item" href="#">List Warna Kulit</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -55,8 +55,8 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="#">Buat Makanan</a></li>
-                        <li><a class="dropdown-item" href="/makanan/admin_read_makanan">List Makanan</a></li>
-                        <li><a class="dropdown-item" href="/makan/admin_read_makan">List Makan</a></li>
+                        <li><a class="dropdown-item" href="#">List Makanan</a></li>
+                        <li><a class="dropdown-item" href="#">List Makan</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -64,13 +64,11 @@
                     Koleksi
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="/koleksi/admin/create_koleksi">Buat Koleksi</a></li>
-                        <li><a class="dropdown-item" href="/koleksi/admin/list_koleksi">List Koleksi</a></li>
-                        <li><a class="dropdown-item" href="/kategori_apparel/admin/create_kategoriapparel">Buat Kategori Apparel</a></li>
-                        <li><a class="dropdown-item" href="/kategori_apparel/admin/list_kategoriapparel">List Kategori Apparel</a></li>
-                        <li><a class="dropdown-item" href="/kategori_apparel/admin/delete_kategoriapparel">Hapus Kategori Apparel</a></li>
-                        <li><a class="dropdown-item" href="/koleksi_tokoh/admin/create_koleksitokoh">Buat Koleksi Tokoh</a></li>
-                        <li><a class="dropdown-item" href="/koleksi_tokoh/admin/list_koleksitokoh">List Koleksi Tokohl</a></li>
+                        <li><a class="dropdown-item" href="#">Buat Koleksi</a></li>
+                        <li><a class="dropdown-item" href="#">List Koleksi</a></li>
+                        <li><a class="dropdown-item" href="#">Buat Kategori Apparel</a></li>
+                        <li><a class="dropdown-item" href="#">List Kategori Apparel</a></li>
+                        <li><a class="dropdown-item" href="#">List Koleksi Tokohl</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -88,7 +86,27 @@
             </ul>
         </div>
     </nav>
-    <h3>Username: {{username}}</h3>
-</body>
+    <form method="POST">
+        <p>Form Update Pekerjaan</p>
 
-</html>
+        <div class="form-outline mb-4">
+            <label class="form-label" for="email">Nama Pekerjaan </label>
+            <input id="username" type="text" name="username" class="form-control" 
+            placeholder="Masukkan nama pekerjaan..." /> 
+            
+        </div>
+
+        <div class="form-outline mb-4">
+            <!-- <input type="password" id="form2Example22" class="form-control" />
+            <label class="form-label" for="form2Example22">Password</label> -->
+            <label class="form-label" for="password">Base Salary </label>
+            <input id="password" type="password" name="password" class="form-control" 
+            placeholder="Masukkan base honor..." /> 
+        </div>
+
+        <div class="text-center pt-1 mb-5 pb-1">
+            <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" 
+            type="submit" value="Login">Simpan</button>
+        </div>
+    </form>
+</body>

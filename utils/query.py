@@ -73,7 +73,6 @@ def query(query_str: str):
                 print(hasil)
                 hasil = cursor.fetchall()
                 if len(hasil) > 1 :
-                    
                     hasil = [dict(row) for row in hasil]
                 elif len(hasil) == 1:
                     hasil = dict(hasil[0])
