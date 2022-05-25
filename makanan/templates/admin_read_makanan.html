@@ -7,7 +7,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <title>Admin Homepage</title>
+    <title> List Makanan </title>
+    <style>
+        table {
+            border: 1px solid black;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        
+        th {
+            border: 1px solid black;
+        }
+        
+        td {
+            border: 1px solid black;
+            text-align: left;
+            padding: 5px;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #D6EEEE;
+        }
+    </style>
 </head>
 
 <body>
@@ -68,8 +89,6 @@
                         <li><a class="dropdown-item" href="/koleksi/admin/list_koleksi">List Koleksi</a></li>
                         <li><a class="dropdown-item" href="/kategori_apparel/admin/create_kategoriapparel">Buat Kategori Apparel</a></li>
                         <li><a class="dropdown-item" href="/kategori_apparel/admin/list_kategoriapparel">List Kategori Apparel</a></li>
-                        <li><a class="dropdown-item" href="/kategori_apparel/admin/delete_kategoriapparel">Hapus Kategori Apparel</a></li>
-                        <li><a class="dropdown-item" href="/koleksi_tokoh/admin/create_koleksitokoh">Buat Koleksi Tokoh</a></li>
                         <li><a class="dropdown-item" href="/koleksi_tokoh/admin/list_koleksitokoh">List Koleksi Tokohl</a></li>
                     </ul>
                 </li>
@@ -88,7 +107,30 @@
             </ul>
         </div>
     </nav>
-    <h3>Username: {{username}}</h3>
+
+    <h1> Hello {{username}}!? </h1>
+
+    {% if list_makanan %}
+    <table>
+        <tr>
+            <th scope="col">No</th>
+            <th scope="col">Nama</th>
+            <th scope="col">Harga</th>
+            <th scope="col">Tingkat Energi</th>
+            <th scope="col">Tingkat Kelaparan</th>
+        </tr>
+
+        {% for i in list_makanan %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{i.nama}}</td>
+            <td>{{i.harga}}</td>
+            <td>{{i.tingkat_energi}}</td>
+            <td>{{i.tingkat_kelaparan}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
 </body>
 
 </html>

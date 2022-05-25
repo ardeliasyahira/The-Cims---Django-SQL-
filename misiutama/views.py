@@ -36,6 +36,8 @@ def pemain_detail_misiutama(request, nama):
         return HttpResponse("Anda bukanlah pemain")
 
     list_detailmisi = query(f"SELECT * FROM MISI WHERE nama = '{nama}'")
+    print(list_detailmisi)
+
 
     data = get_session_data(request)
     data['list_detailmisi'] = list_detailmisi
@@ -49,6 +51,7 @@ def admin_detail_misiutama(request, nama):
         return HttpResponse("Anda bukanlah admin")
 
     list_detailmisi = query(f"SELECT * FROM MISI WHERE nama = '{nama}'")
+    print(list_detailmisi)
 
     data = get_session_data(request)
     data['list_detailmisi'] = list_detailmisi
