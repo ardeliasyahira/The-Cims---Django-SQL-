@@ -1,38 +1,43 @@
-<!DOCTYPE html>
-<html lang = "en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detail tokoh</title>
-</head>
+{% extends 'admin_navbar.html' %} {% load static %} {% block meta %}  
+<title>Detail tokoh</title>
+{% endblock meta %} {% block content %}
 <body>
     <h1>Detail tokoh</h1>
+    {% for data_query in list %}
+    <tr>
+        <td>Nama</td>
 
-    {% for data in list_tokoh %}
-
-    <text>Nama: {{ data.Nama }} </text>
-    <br />
-
-    <text>ID Rambut: {{ data.Id_rambut }} </text>
-    <br />
-
-    <text>ID Mata: {{ data.Id_mata }} </text>
-    <br />
-
-    <text>ID Rumah: {{ data.Id_rumah }} </text>
-    <br />
-
-    <text>Warna kulit: {{ data.Warna_kulit }} </text>
-    <br />
-
-    <text>Pekerjaan: {{ data.Pekerjaan }} </text>
-    <br />
-
+        <td>{{data_query.nama}}</td>
+        <br/>
+    </tr>
+    <tr>
+        <td>ID Rambut</td>
+        <td>{{data_query.id_rambut}}</td>
+        <br/>
+    </tr>
+    <tr>
+        <td>ID Mata</td>
+        <td>{{data_query.id_mata}}</td>
+        <br/>
+    </tr>
+    <tr>
+        <td>ID Rumah</td>
+        <td>{{data_query.id_rumah}}</td>
+        <br/>
+    </tr>
+    <tr>
+        <td>Warna kulit</td>
+        <td>{{data_query.warna_kulit}}</td>
+        <br/>
+    </tr>
+    <tr>
+        <td>Pekerjaan</td>
+        <td>{{data_query.pekerjaan}}</td>
+        <br/>
+    </tr>
     {% endfor %}
 </body>
-</html>
-
+{% endblock content %}
 
 
 
