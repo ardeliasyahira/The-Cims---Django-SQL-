@@ -90,28 +90,29 @@
         <!-- NANTI panggil forms.py aja -->
         <div class="form-outline mb-4">
             <label class="form-label" for="nama_makanan">Nama Makanan</label>
-            <input id="namaMakanan" type="text" name="namaMakanan" class="form-control" placeholder="Masukkan nama makanan..." />
+            <input id="namaMakanan" type="text" name="namaMakanan" class="form-control" placeholder="Masukkan nama makanan..." required oninvalid="this.setCustomValidity('Data yang diisikan belum lengkap, silahkan lengkapi terlebih dahulu')" oninput="setCustomValidity('')"
+            />
         </div>
 
         <div class="form-outline mb-4">
             <!-- <input type="password" id="form2Example22" class="form-control" />
             <label class="form-label" for="form2Example22">Password</label> -->
             <label class="form-label" for="harga">Harga</label>
-            <input id="hargaMakanan" type="number" name="hargaMakanan" class="form-control" />
+            <input id="hargaMakanan" type="number" name="hargaMakanan" class="form-control" required oninvalid="this.setCustomValidity('Data yang diisikan belum lengkap, silahkan lengkapi terlebih dahulu')" oninput="setCustomValidity('')" />
         </div>
 
         <div class="form-outline mb-4">
             <!-- <input type="password" id="form2Example22" class="form-control" />
             <label class="form-label" for="form2Example22">Password</label> -->
             <label class="form-label" for="harga">Tingkat Energi</label>
-            <input id="tingkatEnergi" type="number" name="tingkatEnergi" class="form-control" />
+            <input id="tingkatEnergi" type="number" name="tingkatEnergi" class="form-control" required oninvalid="this.setCustomValidity('Data yang diisikan belum lengkap, silahkan lengkapi terlebih dahulu')" oninput="setCustomValidity('')" />
         </div>
 
         <div class="form-outline mb-4">
             <!-- <input type="password" id="form2Example22" class="form-control" />
             <label class="form-label" for="form2Example22">Password</label> -->
             <label class="form-label" for="harga">Tingkat Kelaparan</label>
-            <input id="tingkatKelaparan" type="number" name="tingkatKelaparan" class="form-control" />
+            <input id="tingkatKelaparan" type="number" name="tingkatKelaparan" class="form-control" required oninvalid="this.setCustomValidity('Data yang diisikan belum lengkap, silahkan lengkapi terlebih dahulu')" oninput="setCustomValidity('')" />
         </div>
 
         <div class="text-center pt-1 mb-5 pb-1">

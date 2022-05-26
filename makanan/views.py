@@ -82,3 +82,38 @@ def admin_delete_makanan(request, nama):
     print(nama)
     query(f"DELETE FROM MAKANAN WHERE nama = '{nama}'")
     return redirect("/makanan/admin_read_makanan/")
+
+@csrf_exempt
+def admin_update_makanan(request, nama):
+    if not is_authenticated(request):
+        return login(request)
+    if request.session['role'] == 'pemain':
+        return HttpResponse("Anda bukanlah admin")
+
+    list_makanan = query(f"SELECT * FROM MAKANAN WHERE nama = '{nama}'")
+    print("ngetest")
+    print(list_makanan)
+
+    data = get_session_data(request)
+    data['list_makanan'] = list_makanan
+
+    if request.method == "POST":
+        data = request.POST
+        nama = list_makanan.get('nama')
+        harga = data.get('hargaMakanan')
+        tingkat_energi = data.get('tingkatEnergi')
+        tingkat_kelaparan = data.get('tingkatKelaparan')
+
+        print(nama)
+        print(harga)
+        print(tingkat_energi)
+        print(tingkat_kelaparan)
+
+        query(f"""
+        UPDATE MAKANAN
+        SET harga = {harga}, tingkat_energi = {tingkat_energi}, tingkat_kelaparan = {tingkat_kelaparan}
+        WHERE nama = '{nama}';
+        """)
+        return redirect("/makanan/admin_read_makanan/")
+
+    return render(request,'admin_update_makanan.html', data)
