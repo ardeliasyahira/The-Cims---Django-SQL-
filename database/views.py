@@ -107,8 +107,10 @@ def register(request):
     if is_authenticated(request):
         if str(request.session["role"]) == "admin":
             return redirect("/home/admin_homepage")
+            # return redirect("/register/register_admin")
         else:
             return redirect("/home/pemain_homepage")
+            # return redirect("/register/register_pemain")
 
     if request.method != "POST":
         return register_view(request)
@@ -148,8 +150,8 @@ def register_admin(request):
     """
     )
 
-    if not type(result) == int:
-        return HttpResponse("Anda gagal registrasi!")
+    # if not type(result) == int:
+    #     return HttpResponse("Anda gagal registrasi!")
 
     request.session["username"] = username
     request.session["password"] = password
