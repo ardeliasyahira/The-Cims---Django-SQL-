@@ -1,8 +1,6 @@
 from django.shortcuts import render, HttpResponse, redirect
 from utils.query import query
 from home.views import get_session_data, is_authenticated, login
-from .models import Tokoh
-from .forms import TokohForm
 from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
@@ -56,16 +54,38 @@ def pemain_read_tokoh(request):
 
     return render(request, 'pemain_read_tokoh.html', data)
 
+@csrf_exempt
+def pemain_create_tokoh(request):
+    if not is_authenticated(request):
+        return login(request)
+    if request.session['role'] == 'admin':
+        return HttpResponse("Anda bukanlah pemain")
 
-def create_tokoh(request):
-    form = TokohForm()
+    username = request.session['username']
+    list_warna_kulit = query("SELECT kode FROM WARNA_KULIT")
+    list_pekerjaan = query("SELECT nama FROM PEKERJAAN")
+
+    print('ngetest 1')
+    print(list_warna_kulit)
+    print('ngetest 2')
+    print(list_pekerjaan)
+
+    data = get_session_data(request)
+    data['list_warna_kulit'] = list_warna_kulit
+    data['list_pekerjaan'] = list_pekerjaan
     if request.method == 'POST':
-        form = DonasiForm(request.POST or None)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect('/tokoh/pemain_read_tokoh')
-    response = {'form': form}
-    return render(request, 'create_tokoh.html', response)
+        nama_tokoh = request.POST.get('namaTokoh')
+        jenis_kelamin = request.POST.get('jenisKelamin')
+        warna_kulit = request.POST.get('warnaKulit')
+        pekerjaan = request.POST.get('pekerjaan')
+        if nama_tokoh == '':
+            pass
+        else:
+            query(f"""INSERT INTO TOKOH VALUES('{username}','{nama_tokoh}','{jenis_kelamin}','Aktif',
+            0,100,0,0,'{warna_kulit}',1,'Jenius','{pekerjaan}','RB001','MT001','RM001'
+            )""")
+            return redirect("/tokoh/pemain_read_tokoh")
+    return render(request,'create_tokoh.html', data)
     
 
 def admin_detail_tokoh(request):
