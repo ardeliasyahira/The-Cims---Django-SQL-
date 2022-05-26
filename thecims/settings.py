@@ -66,6 +66,9 @@ INSTALLED_APPS = [
     'menjalankan_misi',
     'makanan',
     'makan',
+    'kategori_apparel',
+    'koleksi',
+    'koleksi_tokoh',
 ]
 
 MIDDLEWARE = [
