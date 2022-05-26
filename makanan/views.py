@@ -11,6 +11,26 @@ def admin_read_makanan(request):
         return HttpResponse("Anda bukanlah admin")
 
     list_makanan = query("SELECT * FROM MAKANAN")
+    print(list_makanan)
+    
+    list_makanan_dimakan = query("SELECT DISTINCT nama_makanan FROM MAKAN")
+
+    list_list_makanan_dimakan = []
+
+    for i in list_makanan_dimakan:
+        list_list_makanan_dimakan.append(i['nama_makanan'])
+
+    print(list_list_makanan_dimakan)
+
+    for i in list_makanan:
+        i['ada'] = False
+
+    print(list_makanan)
+
+    for i in list_makanan:
+        if i['nama'] in list_list_makanan_dimakan:
+            i['ada'] = True
+
     print("ngetes")
     print(list_makanan)
 
@@ -52,3 +72,13 @@ def admin_create_makanan(request):
         query(f"INSERT INTO MAKANAN VALUES('{nama}',{harga},{tingkat_energi},{tingkat_kelaparan})")
         return redirect("/makanan/admin_read_makanan/")
     return render(request, 'admin_create_makanan.html')
+
+def admin_delete_makanan(request, nama):
+    if not is_authenticated(request):
+        return login(request)
+    if request.session['role'] == 'pemain':
+        return HttpResponse("Anda bukanlah admin")
+    
+    print(nama)
+    query(f"DELETE FROM MAKANAN WHERE nama = '{nama}'")
+    return redirect("/makanan/admin_read_makanan/")

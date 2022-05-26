@@ -120,10 +120,12 @@ def admin_create_misiutama(request):
 
     return render(request, 'admin_create_misiutama.html')
 
-# def admin_delete_misiutama(request):
-#     if not is_authenticated(request):
-#         return login(request)
-#     if request.session['role'] == 'pemain':
-#         return HttpResponse("Anda bukanlah admin")
+def admin_delete_misiutama(request, nama):
+    if not is_authenticated(request):
+        return login(request)
+    if request.session['role'] == 'pemain':
+        return HttpResponse("Anda bukanlah admin")
     
-#     query(f"DELETE FROM MISI_UTAMA WHERE ")
+    print(nama)
+    query(f"DELETE FROM MISI_UTAMA WHERE nama_misi = '{nama}'")
+    return redirect("/misi_utama/admin_read_misiutama")

@@ -118,6 +118,7 @@
             <th scope="col">Harga</th>
             <th scope="col">Tingkat Energi</th>
             <th scope="col">Tingkat Kelaparan</th>
+            <th scope="col">Action</th>
         </tr>
 
         {% for i in list_makanan %}
@@ -127,6 +128,16 @@
             <td>{{i.harga}}</td>
             <td>{{i.tingkat_energi}}</td>
             <td>{{i.tingkat_kelaparan}}</td>
+            <td>
+                <ul>
+                    <a href="#">Update</a>
+                </ul>
+                {% if i.ada == False %}
+                <ul>
+                    <a href="/makanan/admin_delete_makanan/{{i.nama}}">Delete</a>
+                </ul>
+                {% endif %}
+            </td>
         </tr>
         {% endfor %}
     </table>
