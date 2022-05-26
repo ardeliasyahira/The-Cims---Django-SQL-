@@ -77,7 +77,7 @@ def pemain_create_menjalankan_misiutama(request):
     return render(request, 'pemain_create_menjalankan_misiutama.html', data)
 
 @csrf_exempt
-def pemain_update_menjalankan_misiutama(request, nama):
+def pemain_update_menjalankan_misiutama(request, namatokoh, namamisi):
     if not is_authenticated(request):
         return login(request)
     if request.session['role'] == 'admin':
@@ -85,7 +85,7 @@ def pemain_update_menjalankan_misiutama(request, nama):
 
     username = request.session['username']
 
-    list_menjalankanmisi = query(f"SELECT nama_tokoh, nama_misi, status FROM MENJALANKAN_MISI_UTAMA WHERE nama_misi = '{nama}'")
+    list_menjalankanmisi = query(f"SELECT nama_tokoh, nama_misi, status FROM MENJALANKAN_MISI_UTAMA WHERE nama_tokoh = '{namatokoh}' AND nama_misi = '{namamisi}'")
 
     print('ngetest 1')
     print(list_menjalankanmisi)
@@ -95,7 +95,7 @@ def pemain_update_menjalankan_misiutama(request, nama):
 
     if request.method == "POST":
         data = request.POST
-        nama_tokoh = list_menjalankanmisi.get('nama_tokoh')
+        nama_tokoh = namatokoh
         nama_misi = list_menjalankanmisi.get('nama_misi')
         status = data.get('status')
 
