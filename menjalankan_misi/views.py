@@ -75,3 +75,41 @@ def pemain_create_menjalankan_misiutama(request):
         return HttpResponseRedirect("/menjalankan_misi/pemain_read_menjalankan_misiutama/")
 
     return render(request, 'pemain_create_menjalankan_misiutama.html', data)
+
+@csrf_exempt
+def pemain_update_menjalankan_misiutama(request, nama):
+    if not is_authenticated(request):
+        return login(request)
+    if request.session['role'] == 'admin':
+        return HttpResponse("Anda bukanlah pemain")
+
+    username = request.session['username']
+
+    list_menjalankanmisi = query(f"SELECT nama_tokoh, nama_misi, status FROM MENJALANKAN_MISI_UTAMA WHERE nama_misi = '{nama}'")
+
+    print('ngetest 1')
+    print(list_menjalankanmisi)
+
+    data = get_session_data(request)
+    data['list_menjalankanmisi'] = list_menjalankanmisi
+
+    if request.method == "POST":
+        data = request.POST
+        nama_tokoh = list_menjalankanmisi.get('nama_tokoh')
+        nama_misi = list_menjalankanmisi.get('nama_misi')
+        status = data.get('status')
+
+        print(nama_tokoh)
+        print(nama_misi)
+        print(status)
+
+        query(f"""
+        UPDATE MENJALANKAN_MISI_UTAMA
+        SET status = '{status}'
+        WHERE username_pengguna = '{username}'
+        AND nama_tokoh = '{nama_tokoh}'
+        AND nama_misi = '{nama_misi}';
+        """)
+        return HttpResponseRedirect("/menjalankan_misi/pemain_read_menjalankan_misiutama/")
+
+    return render(request,'pemain_update_menjalankan_misiutama.html', data)
