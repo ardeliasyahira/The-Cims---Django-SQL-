@@ -45,7 +45,7 @@ def create_warnakulit(request):
         return create_warnakulit_view(request)
     
     body = request.POST
-    warna_kulit     = str(body.get('kode_input'))
+    warna_kulit = str(body.get('kode_input'))
 
     result = query(
         f"""
@@ -56,8 +56,8 @@ def create_warnakulit(request):
 
     print(result)
 
-    if not type(result) == int:
-        return HttpResponse("Gagal Memasukkan Data")
+    # if not type(result) == int:
+    #     return HttpResponse("Gagal Memasukkan Data")
     
     return admin_read_warna_kulit(request)
 
