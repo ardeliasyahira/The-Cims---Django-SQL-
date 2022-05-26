@@ -7,28 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <title> List Misi Utama </title>
-    <style>
-        table {
-            border: 1px solid black;
-            border-collapse: collapse;
-            width: 100%;
-        }
-        
-        th {
-            border: 1px solid black;
-        }
-        
-        td {
-            border: 1px solid black;
-            text-align: left;
-            padding: 5px;
-        }
-        
-        tr:nth-child(even) {
-            background-color: #D6EEEE;
-        }
-    </style>
+    <title>Admin Create Makanan</title>
 </head>
 
 <body>
@@ -55,7 +34,6 @@
                     Pekerjaan
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="/pekerjaan/admin_create_pekerjaan">Buat Pekerjaan</a></li>
                         <li><a class="dropdown-item" href="/pekerjaan/read_pekerjaan">List Pekerjaan</a></li>
                         <li><a class="dropdown-item" href="/pekerjaan/read_bekerja">List Bekerja</a></li>
                     </ul>
@@ -65,7 +43,7 @@
                     Misi
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Buat Misi Utama</a></li>
+                        <li><a class="dropdown-item" href="/misi_utama/admin_create_misiutama">Buat Misi Utama</a></li>
                         <li><a class="dropdown-item" href="/misi_utama/admin_read_misiutama">List Misi Utama</a></li>
                         <li><a class="dropdown-item" href="/menjalankan_misi/admin_read_menjalankan_misiutama/">List Mengerjakan Misi Utama</a></li>
                     </ul>
@@ -75,7 +53,7 @@
                     Makan
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Buat Makanan</a></li>
+                        <li><a class="dropdown-item" href="/makanan/admin_create_makanan">Buat Makanan</a></li>
                         <li><a class="dropdown-item" href="/makanan/admin_read_makanan">List Makanan</a></li>
                         <li><a class="dropdown-item" href="/makan/admin_read_makan">List Makan</a></li>
                     </ul>
@@ -85,11 +63,11 @@
                     Koleksi
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="/koleksi/admin/create_koleksi">Buat Koleksi</a></li>
-                        <li><a class="dropdown-item" href="/koleksi/admin/list_koleksi">List Koleksi</a></li>
-                        <li><a class="dropdown-item" href="/kategori_apparel/admin/create_kategoriapparel">Buat Kategori Apparel</a></li>
-                        <li><a class="dropdown-item" href="/kategori_apparel/admin/list_kategoriapparel">List Kategori Apparel</a></li>
-                        <li><a class="dropdown-item" href="/koleksi_tokoh/admin/list_koleksitokoh">List Koleksi Tokohl</a></li>
+                        <li><a class="dropdown-item" href="#">Buat Koleksi</a></li>
+                        <li><a class="dropdown-item" href="#">List Koleksi</a></li>
+                        <li><a class="dropdown-item" href="#">Buat Kategori Apparel</a></li>
+                        <li><a class="dropdown-item" href="#">List Kategori Apparel</a></li>
+                        <li><a class="dropdown-item" href="#">List Koleksi Tokohl</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -107,36 +85,43 @@
             </ul>
         </div>
     </nav>
+    <form method="POST">
+        <p>Form Buat Makanan</p>
+        <!-- NANTI panggil forms.py aja -->
+        <div class="form-outline mb-4">
+            <label class="form-label" for="nama_makanan">Nama Makanan</label>
+            <input id="namaMakanan" type="text" name="namaMakanan" class="form-control" placeholder="Masukkan nama makanan..." />
+        </div>
 
-    <h1> Hello {{username}} </h1>
+        <div class="form-outline mb-4">
+            <!-- <input type="password" id="form2Example22" class="form-control" />
+            <label class="form-label" for="form2Example22">Password</label> -->
+            <label class="form-label" for="harga">Harga</label>
+            <input id="hargaMakanan" type="number" name="hargaMakanan" class="form-control" />
+        </div>
 
-    {% if list_misiutama %}
-    <table>
+        <div class="form-outline mb-4">
+            <!-- <input type="password" id="form2Example22" class="form-control" />
+            <label class="form-label" for="form2Example22">Password</label> -->
+            <label class="form-label" for="harga">Tingkat Energi</label>
+            <input id="tingkatEnergi" type="number" name="tingkatEnergi" class="form-control" />
+        </div>
 
-        <tr>
-            <th scope="col">No</th>
-            <th scope="col">Nama Misi</th>
-            <th scope="col">Action</th>
-        </tr>
+        <div class="form-outline mb-4">
+            <!-- <input type="password" id="form2Example22" class="form-control" />
+            <label class="form-label" for="form2Example22">Password</label> -->
+            <label class="form-label" for="harga">Tingkat Kelaparan</label>
+            <input id="tingkatKelaparan" type="number" name="tingkatKelaparan" class="form-control" />
+        </div>
 
-        {% for i in list_misiutama %}
-        <tr>
-            <td>{{forloop.counter}}</td>
-            <td>{{i.nama_misi}}</td>
-            <td>
-                <ul>
-                    <a href="/misi_utama/admin_detail_misiutama/{{i.nama_misi}}">Detail</a>
-                </ul>
-                {% if i.ada == False %}
-                <ul>
-                    <a href="/misi_utama/admin_delete_misiutama/{{i.nama_misi}}">Delete</a>
-                </ul>
-                {% endif %}
-            </td>
-        </tr>
-        {% endfor %}
-    </table>
-    {% endif %}
+        <div class="text-center pt-1 mb-5 pb-1">
+            <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit" value="POST">Simpan</button>
+            <!-- perlu ada if else klo data udh lengkap  -->
+        </div>
+
+
+    </form>
+
 </body>
 
 </html>
