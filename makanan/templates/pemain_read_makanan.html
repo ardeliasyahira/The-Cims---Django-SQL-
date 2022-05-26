@@ -121,9 +121,7 @@
             <th scope="col">Harga</th>
             <th scope="col">Tingkat Energi</th>
             <th scope="col">Tingkat Kelaparan</th>
-            <th scope="col">Action</th>
         </tr>
-
         {% for i in list_makanan %}
         <tr>
             <td>{{forloop.counter}}</td>
@@ -131,14 +129,6 @@
             <td>{{i.harga}}</td>
             <td>{{i.tingkat_energi}}</td>
             <td>{{i.tingkat_kelaparan}}</td>
-            <td>
-                <ul>
-                    <a href="#">Update</a>
-                </ul>
-                <ul>
-                    <a href="#">Delete</a>
-                </ul>
-            </td>
         </tr>
         {% endfor %}
     </table>
