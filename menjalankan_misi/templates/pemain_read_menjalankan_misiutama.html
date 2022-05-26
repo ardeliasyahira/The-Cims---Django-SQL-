@@ -112,7 +112,7 @@
     </nav>
     <h1> Hello {{username}} </h1>
 
-    {% if list_menjalankan_misiutama %}
+    {% if list_menjalankanmisi %}
     <table>
         <tr>
             <th scope="col">No</th>
@@ -122,7 +122,7 @@
             <th scope="col">Action</th>
         </tr>
 
-        {% for i in list_menjalankan_misiutama %}
+        {% for i in list_menjalankanmisi %}
         <tr>
             <td>{{forloop.counter}}</td>
             <td>{{i.nama_tokoh}}</td>

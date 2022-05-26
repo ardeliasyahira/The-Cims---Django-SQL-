@@ -97,16 +97,16 @@
             <label class="form-label" for="namatokoh">Nama Tokoh</label>
             <select id="namaTokoh" name="namaTokoh" placeholder="Nama Tokoh">
                 {% for i in list_tokoh %}
-                <option value={{i.nama}}>{{ i.nama }}</option>
+                <option {{i.nama}}>{{ i.nama }}</option>
                 {% endfor %}
             </select>
         </div>
 
         <div class="form-outline mb-4">
             <label class="form-label" for="namamisi">Nama Misi Utama</label>
-            <select id="namaMisi" name="namaMisi" placeholder="Nama Makanan">
+            <select id="namaMisi" name="namaMisi">
                 {% for i in list_misi %}
-                <option value={{i.nama_misi}}>{{ i.nama_misi }}</option>
+                <option {{i.nama_misi}}>{{ i.nama_misi }}</option>
                 {% endfor %}
             </select>
         </div>

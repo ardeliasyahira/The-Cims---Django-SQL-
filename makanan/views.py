@@ -26,7 +26,7 @@ def pemain_read_makanan(request):
         return HttpResponse("Anda bukanlah pemain")
 
     username = request.session['username']
-    list_makanan = query(f"SELECT * FROM MAKAN WHERE username_pengguna = '{username}'")
+    list_makanan = query("SELECT * FROM MAKANAN")
     print("ngetest")
     print(list_makanan)
 

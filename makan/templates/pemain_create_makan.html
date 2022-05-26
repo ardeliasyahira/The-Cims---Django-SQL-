@@ -97,7 +97,7 @@
             <label class="form-label" for="namaTokoh">Nama Tokoh</label>
             <select id="namaTokoh" name="namaTokoh" placeholder="Nama Tokoh">
                 {% for i in list_tokoh %}
-                <option value={{i.nama}}>{{ i.nama }}</option>
+                <option {{i.nama}}>{{ i.nama }}</option>
                 {% endfor %}
             </select>
         </div>
@@ -106,7 +106,7 @@
             <label class="form-label" for="namaMakanan">Nama Makanan</label>
             <select id="namaMakanan" name="namaMakanan" placeholder="Nama Makanan">
                 {% for i in list_makan %}
-                <option value={{i.nama}}>{{ i.nama }}</option>
+                <option {{i.nama}}>{{ i.nama }}</option>
                 {% endfor %}
             </select>
         </div>
