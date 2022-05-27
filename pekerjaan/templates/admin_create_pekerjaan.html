@@ -34,6 +34,7 @@
                     Pekerjaan
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="/pekerjaan/admin_create_pekerjaan">Buat Pekerjaan</a></li>
                         <li><a class="dropdown-item" href="/pekerjaan/read_pekerjaan">List Pekerjaan</a></li>
                         <li><a class="dropdown-item" href="/pekerjaan/read_bekerja">List Bekerja</a></li>
                     </ul>
@@ -43,9 +44,9 @@
                     Misi
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Buat Misi Utama</a></li>
+                        <li><a class="dropdown-item" href="/misi_utama/admin_create_misiutama">Buat Misi Utama</a></li>
                         <li><a class="dropdown-item" href="/misi_utama/admin_read_misiutama">List Misi Utama</a></li>
-                        <li><a class="dropdown-item" href="#">List Warna Kulit</a></li>
+                        <li><a class="dropdown-item" href="/menjalankan_misi/admin_read_menjalankan_misiutama/">List Mengerjakan Misi Utama</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -53,9 +54,9 @@
                     Makan
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Buat Makanan</a></li>
-                        <li><a class="dropdown-item" href="#">List Makanan</a></li>
-                        <li><a class="dropdown-item" href="#">List Makan</a></li>
+                        <li><a class="dropdown-item" href="/makanan/admin_create_makanan">Buat Makanan</a></li>
+                        <li><a class="dropdown-item" href="/makanan/admin_read_makanan">List Makanan</a></li>
+                        <li><a class="dropdown-item" href="/makan/admin_read_makan">List Makan</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -63,11 +64,11 @@
                     Koleksi
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Buat Koleksi</a></li>
-                        <li><a class="dropdown-item" href="#">List Koleksi</a></li>
-                        <li><a class="dropdown-item" href="#">Buat Kategori Apparel</a></li>
-                        <li><a class="dropdown-item" href="#">List Kategori Apparel</a></li>
-                        <li><a class="dropdown-item" href="#">List Koleksi Tokohl</a></li>
+                        <li><a class="dropdown-item" href="/koleksi/admin/create_koleksi">Buat Koleksi</a></li>
+                        <li><a class="dropdown-item" href="/koleksi/admin/list_koleksi">List Koleksi</a></li>
+                        <li><a class="dropdown-item" href="/kategori_apparel/admin/create_kategoriapparel">Buat Kategori Apparel</a></li>
+                        <li><a class="dropdown-item" href="/kategori_apparel/admin/list_kategoriapparel">List Kategori Apparel</a></li>
+                        <li><a class="dropdown-item" href="/koleksi_tokoh/admin/list_koleksitokoh">List Koleksi Tokohl</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -86,27 +87,27 @@
         </div>
     </nav>
     <form method="POST">
+        {% csrf_token %}
         <p>Form Buat Pekerjaan</p>
 
         <!-- NANTI panggil forms.py aja -->
         <div class="form-outline mb-4">
             <label class="form-label" for="nama_pekerjaan">Nama Pekerjaan </label>
-            <input id="username" type="text" name="username" class="form-control" 
+            <input id="nama_pekerjaan" type="text" name="nama_pekerjaan" class="form-control" 
             placeholder="Masukkan nama pekerjaan..." /> 
         </div>
 
         <div class="form-outline mb-4">
             <!-- <input type="password" id="form2Example22" class="form-control" />
             <label class="form-label" for="form2Example22">Password</label> -->
-            <label class="form-label" for="base_honor">Base Honor </label>
-            <input id="password" type="password" name="password" class="form-control" 
+            <label class="form-label" for="base_honor" >Base Honor </label>
+            <input id="base_honor" type="number" name="base_honor" class="form-control" 
             placeholder="Masukkan base honor..." /> 
         </div>
 
         <div class="text-center pt-1 mb-5 pb-1">
             <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" 
-            type="submit" value="POST">Simpan</button> 
-            <!-- perlu ada if else klo data udh lengkap  -->
+            type="submit" >Simpan</button> 
         </div>
 
 
