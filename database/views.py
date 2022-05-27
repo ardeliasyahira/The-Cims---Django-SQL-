@@ -148,8 +148,8 @@ def register_admin(request):
     """
     )
 
-    if not type(result) == int:
-        return HttpResponse("Anda gagal registrasi!")
+    # if not type(result) == int:
+    #     return HttpResponse("Anda gagal registrasi!")
 
     request.session["username"] = username
     request.session["password"] = password

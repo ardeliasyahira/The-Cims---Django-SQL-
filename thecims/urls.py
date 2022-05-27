@@ -25,6 +25,12 @@ import warnakulit.urls as warnakulit
 import tokoh.urls as tokoh
 import level.urls as level
 import menggunakan_apparel.urls as apparel
+import menjalankan_misi.urls as menjalankan_misi
+import makan.urls as makan
+import makanan.urls as makanan
+import koleksi.urls as koleksi
+import koleksi_tokoh.urls as koleksi_tokoh
+import kategori_apparel.urls as kategori_apparel
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -36,6 +42,12 @@ urlpatterns = [
     path('misi_utama/', include(misiutama)),
     path('tokoh/', include(tokoh)),
     path('level/', include(level)),
-    path('menggunakan_apparel/', include(apparel))
+    path('menggunakan_apparel/', include(apparel)),
+    path('menjalankan_misi/', include(menjalankan_misi)),
+    path('makan/', include(makan)),
+    path('makanan/', include(makanan)),
+    path('koleksi/', include(koleksi)),
+    path('koleksi_tokoh/', include(koleksi_tokoh)),
+    path('kategori_apparel/', include(kategori_apparel)),
 ]
 

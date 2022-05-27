@@ -5,75 +5,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> List Misi Utama </title>
-    <style>
-        table {
-            border: 1px solid black;
-            border-collapse: collapse;
-            width: 100%;
-        }
-        
-        th {
-            border: 1px solid black;
-        }
-        
-        td {
-            border: 1px solid black;
-            text-align: left;
-            padding: 5px;
-        }
-        
-        tr:nth-child(even) {
-            background-color: #D6EEEE;
-        }
-    </style>
-</head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <title> Detail Misi Utama </title>
 
-<body>
-    <h1> Hello {{username}} </h1>
-
-    {% if list_detailmisi %}
-    <table>
-
-        <tr>
-            <th scope="col">No.</th>
-            <th scope="col">Nama</th>
-            <th scope="col">Efek Energi</th>
-            <th scope="col">Efek Hubungan Soisal</th>
-            <th scope="col">Efek kelaparan</th>
-            <th scope="col">Syarat Energi</th>
-            <th scope="col">Syarat Hubungan Soisal</th>
-            <th scope="col">Syarat kelaparan</th>
-            <th scope="col">Completion_time</th>
-            <th scope="col">Reward Koin</th>
-            <th scope="col">Reward XP</th>
-            <th scope="col">Deskripsi</th>
-        </tr>
-
-        {% for i in list_detailmisi %}
-        <tr>
-            <td>{{forloop.counter}}</td>
-            <td>{{i.nama}}</td>
-            <td>{{i.Efek_energi}}</td>
-            <td>{{i.Efek_hubungan_sosial}}</td>
-            <td>{{i.Efek_kelaparan}}</td>
-            <td>{{i.Syarat_energi}}</td>
-            <td>{{i.Syarat_hubungan_sosial}}</td>
-            <td>{{i.Syarat_kelaparan}}</td>
-            <td>{{i.Completion_time}}</td>
-            <td>{{i.Reward_koin}}</td>
-            <td>{{i.Reward_xp}}</td>
-            <td>{{i.deskripsi}}</td>
-
-            <td>
-                <ul>
-                    <a href="#">Detail</a>
-                </ul>
-            </td>
-        </tr>
-        {% endfor %}
-    </table>
-    {% endif %}
-</body>
+    <body>
+        <h1> Hello {{username}} </h1>
+        <p style="text-align:center;"> <b>Detail Misi Utama</b></p>
+        <br />
+        <p><b>Nama: </b> {{list_detailmisi.nama}}</p>
+        <br />
+        <p><b>Efek Energi: </b> {{list_detailmisi.efek_energi}}</p>
+        <br />
+        <p><b>Efek Hubungan Sosial: </b> {{list_detailmisi.efek_hubungan_sosial}}</p>
+        <br />
+        <p><b>Efek Kelaparan: </b>{{list_detailmisi.efek_kelaparan}}</p>
+        <br />
+        <p><b>Syarat Energi: </b>{{list_detailmisi.syarat_energi}}</p>
+        <br />
+        <p><b>Syarat Hubungan Sosial: </b>{{list_detailmisi.syarat_hubungan_sosial}}</p>
+        <br />
+        <p><b>Syarat Kelaparan: </b>{{list_detailmisi.syarat_kelaparan}}</p>
+        <br />
+        <p><b>Completion Time: </b>{{list_detailmisi.completion_time}}</p>
+        <br />
+        <p><b>Reward Koin: </b>{{list_detailmisi.reward_koin}}</p>
+        <br />
+        <p><b>Reward XP: </b>{{list_detailmisi.reward_xp}}</p>
+    </body>
 
 </html>

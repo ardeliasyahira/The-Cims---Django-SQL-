@@ -91,36 +91,42 @@
     </nav>
     <form method="POST">
         <p>Form Ubah Tokoh</p>
-        <h3>Nama: {{list.username}}</h3>
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-              ID_Rambut
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-              <li><button class="dropdown-item" type="button">a</button></li>
-              <li><button class="dropdown-item" type="button">b</button></li>
-              <li><button class="dropdown-item" type="button">c</button></li>
-            </ul>
-          </div>
-          <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-              ID_Mata
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-              <li><button class="dropdown-item" type="button">Action</button></li>
-              <li><button class="dropdown-item" type="button">Another action</button></li>
-              <li><button class="dropdown-item" type="button">Something else here</button></li>
-            </ul>
-          </div>
-          <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-              ID_Rumah
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-              <li><button class="dropdown-item" type="button">Action</button></li>
-              <li><button class="dropdown-item" type="button">Another action</button></li>
-              <li><button class="dropdown-item" type="button">Something else here</button></li>
-            </ul>
-          </div>
+
+        <div class="form-outline mb-4">
+            <label class="form-label" for="namaTokoh">Nama Tokoh: {{list_tokoh.nama}}</label>
+            <input id="namaTokoh" type="text" name="namaTokoh" class="form-control" placeholder="{{list_tokoh.nama}}" disabled/>
+        </div>
+
+        <div class="form-outline mb-4">
+            <label class="form-label" for="idRambut">ID Rambut: {{list_tokoh.id_rambut}}</label>
+            <select id="idRambut" name="idRambut">
+                {% for i in list_rambut %}
+                <option {{i.id_koleksi}}>{{ i.id_koleksi }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-outline mb-4">
+            <label class="form-label" for="idMata">ID Mata: {{list_tokoh.id_mata}}</label>
+            <select id="idMata" name="idMata">
+                {% for i in list_mata %}
+                <option {{i.id_koleksi}}>{{ i.id_koleksi }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-outline mb-4">
+            <label class="form-label" for="idRumah">ID Rumah: {{list_tokoh.id_rumah}}</label>
+            <select id="idRumah" name="idRumah">
+                {% for i in list_rumah %}
+                <option {{i.id_koleksi}}>{{ i.id_koleksi }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="text-center pt-1 mb-5 pb-1">
+            <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit" value="POST">Simpan</button>
+            <!-- perlu ada if else klo data udh lengkap  -->
+        </div>
     </form>
 </body>
