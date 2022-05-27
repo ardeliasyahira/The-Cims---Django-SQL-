@@ -140,17 +140,17 @@ def pemain_update_tokoh(request, nama) :
     list_rambut = query(f"""SELECT * FROM KOLEKSI_TOKOH
     WHERE username_pengguna = '{username}'
     AND nama_tokoh = '{nama}'
-    AND id_koleksi LIKE 'RB%'""")
+    AND id_koleksi LIKE 'RB%'""", True)
 
     list_mata = query(f"""SELECT * FROM KOLEKSI_TOKOH
     WHERE username_pengguna = '{username}'
     AND nama_tokoh = '{nama}'
-    AND id_koleksi LIKE 'MT%'""")
+    AND id_koleksi LIKE 'MT%'""", True)
 
     list_rumah = query(f"""SELECT * FROM KOLEKSI_TOKOH
     WHERE username_pengguna = '{username}'
     AND nama_tokoh = '{nama}'
-    AND id_koleksi LIKE 'RM%'""")
+    AND id_koleksi LIKE 'RM%'""", True)
     
     data = get_session_data(request)
     data["list_tokoh"] = list_tokoh
@@ -159,7 +159,7 @@ def pemain_update_tokoh(request, nama) :
     data["list_rumah"] = list_rumah
 
     print(list_tokoh)
-    print(len(list_rambut))
+    print(list_rambut)
     print(list_mata)
     print(list_rumah)
 

@@ -60,7 +60,7 @@ def map_cursor(cursor):
 
 #     return hasil
 
-def query(query_str: str):
+def query(query_str: str, is_list = False):
     hasil = []
     with connection.cursor(cursor_factory=RealDictCursor) as cursor:
         cursor.execute("SET SEARCH_PATH TO THECIMS")
@@ -72,7 +72,7 @@ def query(query_str: str):
                 # Kalau ga error, return hasil SELECT
                 print(hasil)
                 hasil = cursor.fetchall()
-                if len(hasil) > 1 :
+                if len(hasil) > 1 or is_list :
                     hasil = [dict(row) for row in hasil]
                 elif len(hasil) == 1:
                     hasil = dict(hasil[0])

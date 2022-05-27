@@ -96,7 +96,7 @@ def pemain_update_menjalankan_misiutama(request, namatokoh, namamisi):
     if request.method == "POST":
         data = request.POST
         nama_tokoh = namatokoh
-        nama_misi = list_menjalankanmisi.get('nama_misi')
+        nama_misi = namamisi
         status = data.get('status')
 
         print(nama_tokoh)
