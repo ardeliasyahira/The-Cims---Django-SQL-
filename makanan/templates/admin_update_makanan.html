@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <title>Admin Create Misi Utama</title>
+    <title>Admin Create Makanan</title>
 </head>
 
 <body>
@@ -85,80 +85,34 @@
             </ul>
         </div>
     </nav>
+    <h1> Hello {{username}} </h1>
     <form method="POST">
-        <p>Form Buat Misi Utama</p>
+        <p>Form Buat Makanan</p>
         <!-- NANTI panggil forms.py aja -->
         <div class="form-outline mb-4">
-            <label class="form-label" for="nama_makanan">Nama Misi Utama</label>
-            <input id="namaMisi" type="text" name="namaMisi" class="form-control" placeholder="Masukkan nama misi..." required oninvalid="this.setCustomValidity('Data yang diisikan belum lengkap, silahkan lengkapi terlebih dahulu')" oninput="setCustomValidity('')"
-            />
+            <label class="form-label" for="nama_makanan">Nama Makanan</label>
+            <input id="namaMakanan" type="text" name="namaMakanan" class="form-control" placeholder="{{list_makanan.nama}}" disabled/>
         </div>
 
         <div class="form-outline mb-4">
             <!-- <input type="password" id="form2Example22" class="form-control" />
             <label class="form-label" for="form2Example22">Password</label> -->
-            <label class="form-label" for="efekenergi">Efek Energi</label>
-            <input id="efekEnergi" type="number" name="efekEnergi" class="form-control" required oninvalid="this.setCustomValidity('Data yang diisikan belum lengkap, silahkan lengkapi terlebih dahulu')" oninput="setCustomValidity('')" />
+            <label class="form-label" for="harga">Harga: {{list_makanan.harga}}</label>
+            <input id="hargaMakanan" type="number" name="hargaMakanan" class="form-control" required oninvalid="this.setCustomValidity('Data yang diisikan belum lengkap, silahkan lengkapi terlebih dahulu')" oninput="setCustomValidity('')" />
         </div>
 
         <div class="form-outline mb-4">
             <!-- <input type="password" id="form2Example22" class="form-control" />
             <label class="form-label" for="form2Example22">Password</label> -->
-            <label class="form-label" for="efekhubungan">Efek Hubungan Sosial</label>
-            <input id="efekHubungan" type="number" name="efekHubungan" class="form-control" required oninvalid="this.setCustomValidity('Data yang diisikan belum lengkap, silahkan lengkapi terlebih dahulu')" oninput="setCustomValidity('')" />
+            <label class="form-label" for="harga">Tingkat Energi: {{list_makanan.tingkat_energi}}</label>
+            <input id="tingkatEnergi" type="number" name="tingkatEnergi" class="form-control" required oninvalid="this.setCustomValidity('Data yang diisikan belum lengkap, silahkan lengkapi terlebih dahulu')" oninput="setCustomValidity('')" />
         </div>
 
         <div class="form-outline mb-4">
             <!-- <input type="password" id="form2Example22" class="form-control" />
             <label class="form-label" for="form2Example22">Password</label> -->
-            <label class="form-label" for="efekenergi">Efek Kelaparan</label>
-            <input id="efekKelaparan" type="number" name="efekKelaparan" class="form-control" required oninvalid="this.setCustomValidity('Data yang diisikan belum lengkap, silahkan lengkapi terlebih dahulu')" oninput="setCustomValidity('')" />
-        </div>
-
-        <div class="form-outline mb-4">
-            <!-- <input type="password" id="form2Example22" class="form-control" />
-            <label class="form-label" for="form2Example22">Password</label> -->
-            <label class="form-label" for="efekenergi">Syarat Energi</label>
-            <input id="syaratEnergi" type="number" name="syaratEnergi" class="form-control" required oninvalid="this.setCustomValidity('Data yang diisikan belum lengkap, silahkan lengkapi terlebih dahulu')" oninput="setCustomValidity('')" />
-        </div>
-
-        <div class="form-outline mb-4">
-            <!-- <input type="password" id="form2Example22" class="form-control" />
-            <label class="form-label" for="form2Example22">Password</label> -->
-            <label class="form-label" for="efekhubungan">Syarat Hubungan Sosial</label>
-            <input id="syaratHubungan" type="number" name="syaratHubungan" class="form-control" required oninvalid="this.setCustomValidity('Data yang diisikan belum lengkap, silahkan lengkapi terlebih dahulu')" oninput="setCustomValidity('')" />
-        </div>
-
-        <div class="form-outline mb-4">
-            <!-- <input type="password" id="form2Example22" class="form-control" />
-            <label class="form-label" for="form2Example22">Password</label> -->
-            <label class="form-label" for="efekenergi">Syarat Kelaparan</label>
-            <input id="syaratKelaparan" type="number" name="syaratKelaparan" class="form-control" required oninvalid="this.setCustomValidity('Data yang diisikan belum lengkap, silahkan lengkapi terlebih dahulu')" oninput="setCustomValidity('')" />
-        </div>
-
-        <div class="form-outline mb-4">
-            <label class="form-label" for="nama_makanan">Completion Time</label>
-            <input id="completionTime" type="time" step="1" name="completionTime" class="form-control" required oninvalid="this.setCustomValidity('Data yang diisikan belum lengkap, silahkan lengkapi terlebih dahulu')" oninput="setCustomValidity('')" />
-        </div>
-
-        <div class="form-outline mb-4">
-            <!-- <input type="password" id="form2Example22" class="form-control" />
-            <label class="form-label" for="form2Example22">Password</label> -->
-            <label class="form-label" for="harga">Reward Koin</label>
-            <input id="rewardKoin" type="number" name="rewardKoin" class="form-control" required oninvalid="this.setCustomValidity('Data yang diisikan belum lengkap, silahkan lengkapi terlebih dahulu')" oninput="setCustomValidity('')" />
-        </div>
-
-        <div class="form-outline mb-4">
-            <!-- <input type="password" id="form2Example22" class="form-control" />
-            <label class="form-label" for="form2Example22">Password</label> -->
-            <label class="form-label" for="harga">Reward XP</label>
-            <input id="rewardXP" type="number" name="rewardXP" class="form-control" required oninvalid="this.setCustomValidity('Data yang diisikan belum lengkap, silahkan lengkapi terlebih dahulu')" oninput="setCustomValidity('')" />
-        </div>
-
-        <div class="form-outline mb-4">
-            <label class="form-label" for="nama_makanan">Deskripsi</label>
-            <input id="deskripsi" type="text" name="deskripsi" class="form-control" placeholder="Masukkan deskripsi misi" required oninvalid="this.setCustomValidity('Data yang diisikan belum lengkap, silahkan lengkapi terlebih dahulu')" oninput="setCustomValidity('')"
-            />
+            <label class="form-label" for="harga">Tingkat Kelaparan: {{list_makanan.tingkat_kelaparan}}</label>
+            <input id="tingkatKelaparan" type="number" name="tingkatKelaparan" class="form-control" required oninvalid="this.setCustomValidity('Data yang diisikan belum lengkap, silahkan lengkapi terlebih dahulu')" oninput="setCustomValidity('')" />
         </div>
 
         <div class="text-center pt-1 mb-5 pb-1">

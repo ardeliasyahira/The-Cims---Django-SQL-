@@ -7,28 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <title> List Menjalankan Misi Utama </title>
-    <style>
-        table {
-            border: 1px solid black;
-            border-collapse: collapse;
-            width: 100%;
-        }
-        
-        th {
-            border: 1px solid black;
-        }
-        
-        td {
-            border: 1px solid black;
-            text-align: left;
-            padding: 5px;
-        }
-        
-        tr:nth-child(even) {
-            background-color: #D6EEEE;
-        }
-    </style>
+    <title>Pemain Create Menjalankan Misi Utama</title>
 </head>
 
 <body>
@@ -84,13 +63,13 @@
                     Koleksi
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="/koleksi/admin/create_koleksi">Buat Koleksi</a></li>
-                        <li><a class="dropdown-item" href="/koleksi/admin/list_koleksi">List Koleksi</a></li>
-                        <li><a class="dropdown-item" href="/kategori_apparel/admin/create_kategoriapparel">Buat Kategori Apparel</a></li>
-                        <li><a class="dropdown-item" href="/kategori_apparel/admin/list_kategoriapparel">List Kategori Apparel</a></li>
-                        <li><a class="dropdown-item" href="/kategori_apparel/admin/delete_kategoriapparel">Hapus Kategori Apparel</a></li>
-                        <li><a class="dropdown-item" href="/koleksi_tokoh/admin/create_koleksitokoh">Buat Koleksi Tokoh</a></li>
-                        <li><a class="dropdown-item" href="/koleksi_tokoh/admin/list_koleksitokoh">List Koleksi Tokohl</a></li>
+                        <!-- <li><a class="dropdown-item" href="/koleksi/admin/create_koleksi">Buat Koleksi</a></li> -->
+                        <li><a class="dropdown-item" href="/koleksi/pemain/list_koleksi">List Koleksi</a></li>
+                        <!-- <li><a class="dropdown-item" href="/kategori_apparel/admin/create_kategoriapparel">Buat Kategori Apparel</a></li> -->
+                        <li><a class="dropdown-item" href="/kategori_apparel/pemain/list_kategoriapparel">List Kategori Apparel</a></li>
+                        <!-- <li><a class="dropdown-item" href="/kategori_apparel/admin/delete_kategoriapparel">Hapus Kategori Apparel</a></li> -->
+                        <!-- <li><a class="dropdown-item" href="/koleksi_tokoh/admin/create_koleksitokoh">Buat Koleksi Tokoh</a></li> -->
+                        <li><a class="dropdown-item" href="/koleksi_tokoh/pemain/list_koleksitokoh">List Koleksi Tokohl</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -110,34 +89,33 @@
             </ul>
         </div>
     </nav>
-    <h1> Hello {{username}} </h1>
+    <form method="POST">
+        <p>Form Menjalankan Misi Utama</p>
+        <!-- NANTI panggil forms.py aja -->
 
-    {% if list_menjalankanmisi %}
-    <table>
-        <tr>
-            <th scope="col">No</th>
-            <th scope="col">Nama Tokoh</th>
-            <th scope="col">Nama Misi</th>
-            <th scope="col">Status</th>
-            <th scope="col">Action</th>
-        </tr>
+        <div class="form-outline mb-4">
+            <label class="form-label" for="namaTokoh">Nama Tokoh: {{list_menjalankanmisi.nama_tokoh}}</label>
+            <input id="namaTokoh" type="text" name="namaTokoh" class="form-control" placeholder="{{list_menjalankanmisi.nama_tokoh}}" disabled/>
+        </div>
 
-        {% for i in list_menjalankanmisi %}
-        <tr>
-            <td>{{forloop.counter}}</td>
-            <td>{{i.nama_tokoh}}</td>
-            <td>{{i.nama_misi}}</td>
-            <td>{{i.status}}</td>
-            <td>
-                <ul>
-                    {% if i.status != 'Selesai' %}
-                    <a href="/menjalankan_misi/pemain_update_menjalankan_misiutama/{{i.nama_tokoh}}/{{i.nama_misi}}">Update</a> {% endif %}
-                </ul>
-            </td>
-        </tr>
-        {% endfor %}
-    </table>
-    {% endif %}
+        <div class="form-outline mb-4">
+            <label class="form-label" for="namaMisi">Nama Misi Utama: {{list_menjalankanmisi.nama_misi}}</label>
+            <input id="namaMisi" type="text" name="namaMisi" class="form-control" placeholder="{{list_menjalankanmisi.nama_misi}}" disabled/>
+        </div>
+
+        <div class="form-outline mb-4">
+            <label class="form-label" for="status">Status: {{list_menjalankanmisi.status}}</label>
+            <input id="status" type="text" name="status" class="form-control" required oninvalid="this.setCustomValidity('Data yang diisikan belum lengkap, silahkan lengkapi terlebih dahulu')" oninput="setCustomValidity('')" />
+        </div>
+
+        <div class="text-center pt-1 mb-5 pb-1">
+            <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit" value="POST">Simpan</button>
+            <!-- perlu ada if else klo data udh lengkap  -->
+        </div>
+
+
+    </form>
+
 </body>
 
 </html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,6 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <title> List Pemain </title>
 </head>
+
 <body>
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #a8d3f1;">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -88,63 +90,61 @@
         </div>
     </nav>
     <h1> Hello {{username}} </h1>
+    <p>List Tokoh</p>
     {% if list_tokoh %}
-        <table>
-            <tr>
-                <th scope="col">Nama</th>
-                <th scope="col">Jenis Kelamin</th>
-                <th scope="col">Status</th>
-                <th scope="col">XP</th>
-                <th scope="col">Energi</th>
-                <th scope="col">Kelaparan</th>
-                <th scope="col">Hubungan Sosial</th>
-                <th scope="col">Warna Kulit</th>
-                <th scope="col">Level</th>
-                <th scope="col">Sifat</th>
-                <th scope="col">Pekerjaan</th>
-                <th scope="col">Id Rambut</th>
-                <th scope="col">Id Mata</th>
-                <th scope="col">Id Rumah</th>
-                <!-- <th scope="col">Action</th> -->
-            </tr>
-            {% for i in list_tokoh %}
-                <tr>
-                    <td>{{ i.nama }}</td>
-                    <td>{{ i.jenis_kelamin }}</td>
-                    <td>{{ i.status }}</td>
-                    <td>{{ i.xp }}</td>
-                    <td>{{ i.energi }}</td>
-                    <td>{{ i.kelaparan }}</td>
-                    <td>{{ i.hubungan_sosial }}</td>
-                    <td>{{ i.warna_kulit }}</td>
-                    <td>{{ i.level }}</td>
-                    <td>{{ i.sifat }}</td>
-                    <td>{{ i.pekerjaan }}</td>
-                    <td>{{ i.id_rambut }}</td>
-                    <td>{{ i.id_mata }}</td>
-                    <td>{{ i.id_rumah }}</td>
-                    <td>
-                        <ul>
-                            <form method="POST">
-                                {% csrf_token %}
-                                <li><button name="NamaTokoh" type="submit" value={{ i.nama }} href="/tokoh/pemain_detail_tokoh">Detail</button></li>
-                            </form>
-                        </ul>
-                    </td>
-                    <td>
-                        <ul>
-                            <form method="POST">
-                                {% csrf_token %}
-                                <li><button type="submit" href="/pemain_update_tokoh">Update</button></li>
-                            </form>
-                        </ul>
-                    </td>
-                </tr>
-            {% endfor %}
+    <table>
+        <tr>
+            <th scope="col">Nama</th>
+            <th scope="col">Jenis Kelamin</th>
+            <th scope="col">Status</th>
+            <th scope="col">XP</th>
+            <th scope="col">Energi</th>
+            <th scope="col">Kelaparan</th>
+            <th scope="col">Hubungan Sosial</th>
+            <th scope="col">Warna Kulit</th>
+            <th scope="col">Level</th>
+            <th scope="col">Sifat</th>
+            <th scope="col">Pekerjaan</th>
+            <th scope="col">Id Rambut</th>
+            <th scope="col">Id Mata</th>
+            <th scope="col">Id Rumah</th>
+            <!-- <th scope="col">Action</th> -->
+        </tr>
+        {% for i in list_tokoh %}
+        <tr>
+            <td>{{ i.nama }}</td>
+            <td>{{ i.jenis_kelamin }}</td>
+            <td>{{ i.status }}</td>
+            <td>{{ i.xp }}</td>
+            <td>{{ i.energi }}</td>
+            <td>{{ i.kelaparan }}</td>
+            <td>{{ i.hubungan_sosial }}</td>
+            <td>{{ i.warna_kulit }}</td>
+            <td>{{ i.level }}</td>
+            <td>{{ i.sifat }}</td>
+            <td>{{ i.pekerjaan }}</td>
+            <td>{{ i.id_rambut }}</td>
+            <td>{{ i.id_mata }}</td>
+            <td>{{ i.id_rumah }}</td>
+            <td>
+                <ul>
+                    <form method="POST">
+                        {% csrf_token %}
+                        <li><button name="NamaTokoh" type="submit" value={{ i.nama }} href="/tokoh/pemain_detail_tokoh">Detail</button></li>
+                    </form>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <button style="border-radius: 3px;"><a href="/tokoh/pemain_update_tokoh/{{i.nama}}">Update</a></button>
+                </ul>
+            </td>
+        </tr>
+        {% endfor %}
         <table>
             {% else %}
-                <p>Belum ada tokoh yang dibuat</p>
+            <p>Belum ada tokoh yang dibuat</p>
             {% endif %}
 </body>
-</html>
 
+</html>
