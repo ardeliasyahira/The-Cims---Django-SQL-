@@ -14,7 +14,7 @@ try:
                         port="5432",
                         database="d8lkmntmudsje8")
 
-    # connection.autocommit = True
+    connection.autocommit = True
 
     # Create a cursor to perform database operations
     cursor = connection.cursor()
@@ -31,34 +31,6 @@ def map_cursor(cursor):
     return [nt_result(*row) for row in cursor.fetchall()]
 
 
-# def query(query_str: str):
-#     hasil = []
-#     with connection.cursor(cursor_factory=RealDictCursor) as cursor:
-#         cursor.execute("SET SEARCH_PATH TO THECIMS")
-
-#         try:
-#             cursor.execute(query_str)
-
-#             if query_str.strip().lower().startswith("select"):
-#                 print(len(hasil))
-#                 if len(hasil) > 1 :
-#                     hasil = cursor.fetchall()
-#                     hasil = [dict(row) for row in hasil]
-#                 else:
-#                     hasil = cursor.fetchone()
-#                     hasil = dict(hasil)
-#                 print(len(hasil))
-
-#             else:
-#                 # Kalau ga error, return jumlah row yang termodifikasi oleh INSERT, UPDATE, DELETE
-#                 hasil = cursor.rowcount
-#                 connection.commit()
-#         except Exception as e:
-#             # Ga tau error apa
-#             hasil = e
-#             transaction.rollback()
-
-#     return hasil
 
 def query(query_str: str, is_list = False):
     hasil = []
@@ -69,7 +41,6 @@ def query(query_str: str, is_list = False):
             cursor.execute(query_str)
 
             if query_str.strip().lower().startswith("select"):
-                # Kalau ga error, return hasil SELECT
                 print(hasil)
                 hasil = cursor.fetchall()
                 if len(hasil) > 1 or is_list :
@@ -80,11 +51,9 @@ def query(query_str: str, is_list = False):
                     hasil = [dict(row) for row in hasil]
                 
             else:
-                # Kalau ga error, return jumlah row yang termodifikasi oleh INSERT, UPDATE, DELETE
                 hasil = cursor.rowcount
                 connection.commit()
         except Exception as e:
-            # Ga tau error apa
             hasil = e
             transaction.rollback()
 
