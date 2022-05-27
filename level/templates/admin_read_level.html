@@ -97,6 +97,8 @@
     <h1> Halo {{username}}! </h1>
 
     {% if list_level %}
+    <form method="POST">
+    {% csrf_token %}
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -110,7 +112,14 @@
                 <tr>
                     <td>{{ pemain.level }}</td>
                     <td>{{ pemain.xp }}</td>
-                    <td><a href="/level/admin/update_level">Update</a></td>
+                    <td>
+                    <a href="/level/admin/update_level/{{ pemain.level }}/{{ pemain.xp }}">Update</a>
+                    {% if pemain.can_delete == 'true' %}
+                        <button name="DeleteButton" type="submit" value="{{ pemain.level }}" style="color: #007BFF;">Delete</button>
+                    {% endif %}
+
+                    </td>
+                    
                 </tr>
             {% endfor %}
             
@@ -118,6 +127,7 @@
         </table>
     {% else %}
         <h3>Belum ada level di aplikasi ini.</h3>
+    </form>
     {% endif %}
 
     

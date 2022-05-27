@@ -14,12 +14,12 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.urls import path 
-from .views import pemain_read_level, admin_read_level, create_level, update_level
+from .views import pemain_read_level, admin_read_level, create_level, update_level_view
 
 urlpatterns = [
     path('admin/list_level', admin_read_level, name='admin_read_level'),
     path('pemain/list_level', pemain_read_level, name='pemain_read_level'),
     path('admin/create_level', create_level, name='create_level'),
-    path('admin/update_level', update_level, name='update_level'),
+    path('admin/update_level/<level>/<xp>', update_level_view, name='update_level'),
 ]
 

@@ -100,6 +100,9 @@
     <h1> Halo {{username}}! </h1>
 
     {% if list_menggunakan_apparel %}
+    <form method="POST">
+        {% csrf_token %}
+
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -119,7 +122,9 @@
                     <td>{{ pemain.warna_apparel }}</td>
                     <td>{{ pemain.nama_pekerjaan }}</td>
                     <td>{{ pemain.kategori_apparel }}</td>
-                    <td><a href="#">Lepas</a></td>
+                    <td>
+                        <button name="DeleteButton" type="submit" value="{{ username }}, {{ pemain.nama_tokoh }}, {{ pemain.id_koleksi }}" style="color: #007BFF">Lepas</button>
+                    </td>
                 </tr>
             {% endfor %}
             
@@ -127,6 +132,7 @@
         </table>
     {% else %}
         <h3>Belum ada penggunaan apparel di aplikasi ini.</h3>
+    </form>
     {% endif %}
 
     

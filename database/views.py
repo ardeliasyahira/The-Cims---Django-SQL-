@@ -107,10 +107,8 @@ def register(request):
     if is_authenticated(request):
         if str(request.session["role"]) == "admin":
             return redirect("/home/admin_homepage")
-            # return redirect("/register/register_admin")
         else:
             return redirect("/home/pemain_homepage")
-            # return redirect("/register/register_pemain")
 
     if request.method != "POST":
         return register_view(request)

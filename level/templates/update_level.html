@@ -97,13 +97,14 @@
     <div>
       
       <form method="POST">
+        {% csrf_token %}
           <div class="div-row">
-              <label for="level_input">Level: 1 </label>
-              <!-- <input id="level_input" type="text" name="level_input" /> -->
+              <label for="level_input">Level:</label>
+              <input id="level_input" name="level_input" type="number" value="{{level}}" readonly="readonly" />
           </div>
           <div class="div-row">
-            <label for="xp_input">XP: 0 </label>
-            <input id="xp_input" type="text" name="xp_input" />
+            <label for="xp_input">XP:</label>
+            <input id="xp_input" type="number" name="xp_input" value="{{xp}}" required />
         </div>
           <div class="div-row">
               <input class="padded-button" type="submit" value="Simpan" />
