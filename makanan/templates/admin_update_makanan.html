@@ -34,6 +34,7 @@
                     Pekerjaan
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="/pekerjaan/admin_create_pekerjaan">Buat Pekerjaan</a></li>
                         <li><a class="dropdown-item" href="/pekerjaan/read_pekerjaan">List Pekerjaan</a></li>
                         <li><a class="dropdown-item" href="/pekerjaan/read_bekerja">List Bekerja</a></li>
                     </ul>
@@ -63,11 +64,11 @@
                     Koleksi
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Buat Koleksi</a></li>
-                        <li><a class="dropdown-item" href="#">List Koleksi</a></li>
-                        <li><a class="dropdown-item" href="#">Buat Kategori Apparel</a></li>
-                        <li><a class="dropdown-item" href="#">List Kategori Apparel</a></li>
-                        <li><a class="dropdown-item" href="#">List Koleksi Tokohl</a></li>
+                        <li><a class="dropdown-item" href="/koleksi/admin/create_koleksi">Buat Koleksi</a></li>
+                        <li><a class="dropdown-item" href="/koleksi/admin/list_koleksi">List Koleksi</a></li>
+                        <li><a class="dropdown-item" href="/kategori_apparel/admin/create_kategoriapparel">Buat Kategori Apparel</a></li>
+                        <li><a class="dropdown-item" href="/kategori_apparel/admin/list_kategoriapparel">List Kategori Apparel</a></li>
+                        <li><a class="dropdown-item" href="/koleksi_tokoh/admin/list_koleksitokoh">List Koleksi Tokohl</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -85,9 +86,10 @@
             </ul>
         </div>
     </nav>
+
     <h1> Hello {{username}} </h1>
     <form method="POST">
-        <p>Form Buat Makanan</p>
+        <p>Form Update Makanan</p>
         <!-- NANTI panggil forms.py aja -->
         <div class="form-outline mb-4">
             <label class="form-label" for="nama_makanan">Nama Makanan</label>
