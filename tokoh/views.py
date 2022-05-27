@@ -123,17 +123,68 @@ def pemain_detail_tokoh(request):
         print("tidak terotentikasi")
         return login(request)
 
-def pemain_update_tokoh(request) :
-    if is_authenticated(request):
-        print("terotentikasi")
+@csrf_exempt
+def pemain_update_tokoh(request, nama) :
+    # if is_authenticated(request):
+    #     print("terotentikasi")
 
-        nama_tokoh = request.POST.get('Nama')
-        username = request.session.get("Username")
-        data_query = query(f"SELECT * FROM TOKOH WHERE  username_pengguna ='{username}' AND nama LIKE '%{nama_tokoh}%'")
-        data = get_session_data(request)
-        data["list"] = data_query
-        print(data_query)
-        return render(request, "pemain_update_tokoh.html", data)
-    else:
-        print("tidak terotentikasi")
+    #     username = request.session.get("Username")
+    if not is_authenticated(request):
         return login(request)
+    if request.session['role'] == 'admin':
+        return HttpResponse("Anda bukanlah pemain")
+
+    username = request.session['username']
+    list_tokoh = query(f"SELECT * FROM TOKOH WHERE  username_pengguna ='{username}' AND nama LIKE '%{nama}%'")
+
+    list_rambut = query(f"""SELECT * FROM KOLEKSI_TOKOH
+    WHERE username_pengguna = '{username}'
+    AND nama_tokoh = '{nama}'
+    AND id_koleksi LIKE 'RB%'""")
+
+    list_mata = query(f"""SELECT * FROM KOLEKSI_TOKOH
+    WHERE username_pengguna = '{username}'
+    AND nama_tokoh = '{nama}'
+    AND id_koleksi LIKE 'MT%'""")
+
+    list_rumah = query(f"""SELECT * FROM KOLEKSI_TOKOH
+    WHERE username_pengguna = '{username}'
+    AND nama_tokoh = '{nama}'
+    AND id_koleksi LIKE 'RM%'""")
+    
+    data = get_session_data(request)
+    data["list_tokoh"] = list_tokoh
+    data["list_rambut"] = list_rambut
+    data["list_mata"] = list_mata
+    data["list_rumah"] = list_rumah
+
+    print(list_tokoh)
+    print(len(list_rambut))
+    print(list_mata)
+    print(list_rumah)
+
+    if request.method == "POST":
+        data = request.POST
+        id_rambut = data.get('idRambut')
+        id_mata = data.get('idMata')
+        id_rumah = data.get('idRumah')
+
+        print(username)
+        print(nama)
+        print(id_rambut)
+        print(id_mata)
+        print(id_rumah)
+
+        query(f"""
+        UPDATE TOKOH
+        SET id_rambut = '{id_rambut}', id_mata = '{id_mata}', id_rumah = '{id_rumah}'
+        WHERE username_pengguna = '{username}'
+        AND nama = '{nama}';
+        """)
+        return redirect("/tokoh/pemain_read_tokoh")
+
+    return render(request,'pemain_update_tokoh.html', data)
+    #     return render(request, "pemain_update_tokoh.html", data)
+    # else:
+    #     print("tidak terotentikasi")
+    #     return login(request)
