@@ -1,9 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
 
-{% extends 'pemain_navbar.html' %} {% load static %} {% block meta %}  
-    <title> List Pemain </title>
-{% endblock meta %} {% block content %}
-<body>
-    <h1> Hello {{username}} </h1>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <title>List Pemain</title>
+    </head>
+
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #a8d3f1;">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Tokoh
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="/tokoh/admin_read_tokoh">List Tokoh</a></li>
+                            <li><a class="dropdown-item" href="/warnakulit/admin/create_warnakulit">Buat Warna Kulit</a></li>
+                            <li><a class="dropdown-item" href="/warnakulit/admin/list_warna_kulit">List Warna Kulit</a></li>
+                            <li><a class="dropdown-item" href="/level/admin/create_level">Buat Level</a></li>
+                            <li><a class="dropdown-item" href="/level/admin/list_level">List Level</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Pekerjaan
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="/pekerjaan/admin_create_pekerjaan">Buat Pekerjaan</a></li>
+                            <li><a class="dropdown-item" href="/pekerjaan/read_pekerjaan">List Pekerjaan</a></li>
+                            <li><a class="dropdown-item" href="/pekerjaan/read_bekerja">List Bekerja</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Misi
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="/misi_utama/admin_create_misiutama">Buat Misi Utama</a></li>
+                            <li><a class="dropdown-item" href="/misi_utama/admin_read_misiutama">List Misi Utama</a></li>
+                            <li><a class="dropdown-item" href="/menjalankan_misi/admin_read_menjalankan_misiutama/">List Mengerjakan Misi Utama</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Makan
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="/makanan/admin_create_makanan">Buat Makanan</a></li>
+                            <li><a class="dropdown-item" href="/makanan/admin_read_makanan">List Makanan</a></li>
+                            <li><a class="dropdown-item" href="/makan/admin_read_makan">List Makan</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Koleksi
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="/koleksi/admin/create_koleksi">Buat Koleksi</a></li>
+                            <li><a class="dropdown-item" href="/koleksi/admin/list_koleksi">List Koleksi</a></li>
+                            <li><a class="dropdown-item" href="/kategori_apparel/admin/create_kategoriapparel">Buat Kategori Apparel</a></li>
+                            <li><a class="dropdown-item" href="/kategori_apparel/admin/list_kategoriapparel">List Kategori Apparel</a></li>
+                            <li><a class="dropdown-item" href="/koleksi_tokoh/admin/list_koleksitokoh">List Koleksi Tokohl</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Penggunaan
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="/menggunakan_apparel/admin/list_menggunakan_apparel">List Menggunakan Apparel</a></li>
+                            <li><a class="dropdown-item" href="/barang/admin_read_barang">List Menggunakan Barang</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <h1> Hello {{username}} </h1>
 
     {% if list_tokoh %}
         <table>
@@ -57,6 +140,8 @@
             {% else %}
                 <p>Belum ada tokoh yang dibuat</p>
             {% endif %}
-</body>
-{% endblock content %}
+    </body>
+</html>
+
+
 

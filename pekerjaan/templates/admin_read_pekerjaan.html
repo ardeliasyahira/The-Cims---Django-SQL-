@@ -43,7 +43,7 @@
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="/pekerjaan/admin_create_pekerjaan">Buat Pekerjaan</a></li>
                         <li><a class="dropdown-item" href="/pekerjaan/read_pekerjaan">List Pekerjaan</a></li>
-                        <li><a class="dropdown-item" href="#">List Bekerja</a></li>
+                        <li><a class="dropdown-item" href="/pekerjaan/read_bekerja">List Bekerja</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -51,9 +51,9 @@
                     Misi
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Buat Misi Utama</a></li>
-                        <li><a class="dropdown-item" href="#">List Misi Utama</a></li>
-                        <li><a class="dropdown-item" href="#">List Warna Kulit</a></li>
+                        <li><a class="dropdown-item" href="/misi_utama/admin_create_misiutama">Buat Misi Utama</a></li>
+                        <li><a class="dropdown-item" href="/misi_utama/admin_read_misiutama">List Misi Utama</a></li>
+                        <li><a class="dropdown-item" href="/menjalankan_misi/admin_read_menjalankan_misiutama/">List Mengerjakan Misi Utama</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -61,9 +61,9 @@
                     Makan
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Buat Makanan</a></li>
-                        <li><a class="dropdown-item" href="#">List Makanan</a></li>
-                        <li><a class="dropdown-item" href="#">List Makan</a></li>
+                        <li><a class="dropdown-item" href="/makanan/admin_create_makanan">Buat Makanan</a></li>
+                        <li><a class="dropdown-item" href="/makanan/admin_read_makanan">List Makanan</a></li>
+                        <li><a class="dropdown-item" href="/makan/admin_read_makan">List Makan</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -71,11 +71,11 @@
                     Koleksi
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Buat Koleksi</a></li>
-                        <li><a class="dropdown-item" href="#">List Koleksi</a></li>
-                        <li><a class="dropdown-item" href="#">Buat Kategori Apparel</a></li>
-                        <li><a class="dropdown-item" href="#">List Kategori Apparel</a></li>
-                        <li><a class="dropdown-item" href="#">List Koleksi Tokohl</a></li>
+                        <li><a class="dropdown-item" href="/koleksi/admin/create_koleksi">Buat Koleksi</a></li>
+                        <li><a class="dropdown-item" href="/koleksi/admin/list_koleksi">List Koleksi</a></li>
+                        <li><a class="dropdown-item" href="/kategori_apparel/admin/create_kategoriapparel">Buat Kategori Apparel</a></li>
+                        <li><a class="dropdown-item" href="/kategori_apparel/admin/list_kategoriapparel">List Kategori Apparel</a></li>
+                        <li><a class="dropdown-item" href="/koleksi_tokoh/admin/list_koleksitokoh">List Koleksi Tokohl</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -88,7 +88,7 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/auth/logout">Logout</a>
+                    <a class="nav-link" href="/logout">Logout</a>
                 </li>
             </ul>
         </div>
@@ -96,6 +96,7 @@
     <h1> Hello {{username}} </h1>
 
     {% if list_pekerjaan %}
+    {% csrf_token %}
         <table>
             <tr>
                 <th scope="col">Nama Pekerjaan</th>
@@ -107,7 +108,12 @@
                 <tr>
                     <td>{{ p.nama }}</td>
                     <td>{{ p.base_honor }}</td>
-                    <td><button class ="updatebtn" onclick="location.href ='admin_update_pekerjaan'">Update</button></td>
+                    <td><button class ="updatebtn" onclick="location.href ='admin_update_pekerjaan/{{p.nama}}'">Update</button></td>
+                    {% if p.bisadelete == 0 %}
+                        <form method="POST">
+                            <td><button name="NamaPekerjaanDelete" type="submit" value='{{ p.nama }}'>Delete</button></td>
+                        </form>   
+                    {% endif %}
                     </td>
                 </tr>
             {% endfor %}

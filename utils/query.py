@@ -14,7 +14,7 @@ try:
                         port="5432",
                         database="d8lkmntmudsje8")
 
-    # connection.autocommit = True
+    connection.autocommit = True
 
     # Create a cursor to perform database operations
     cursor = connection.cursor()
